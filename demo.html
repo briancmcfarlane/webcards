@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>WebCards: Demo a WebCard</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="screen-webcards.css" media="screen,projection" />
+	<link rel="stylesheet" type="text/css" href="print-webcards.css" media="print" />
+	<script type="text/javascript" src="webcards-global.js"></script>
+	<script type="text/javascript" src="webcards-demo.js"></script>
+</head>
+<body>
+
+<p id="jump"><a href="#contentarea">Jump to main content</a></p>
+
+<div id="container">
+<h1>WebCards</h1>
+<h2 id="tagline">An E-Card For Every Occasion</h2>
+
+<ul id="tnav">
+	<li><a href="index.html" tabindex="140">Home</a></li>
+	<li><a href="features.html" tabindex="150">Features</a></li>
+	<li><a href="pricing.html" tabindex="160">Pricing</a></li>
+	<li id="insertbefore"><a href="purchase.html" tabindex="170">Purchase a WebCard</a></li>
+	<li><a href="support.html" tabindex="180">Support</a></li>
+</ul>
+<div class="clr">&nbsp;</div>
+
+<div id="content"><a name="contentarea"></a>
+<h2>Demo a WebCard</h2>
+<p>This demo shows a little of what is possible with WebCards.  Consult our <a href="features.html">features list</a> for the complete picture!</p>
+<p><strong>Note:</strong> All fields are required.</p>
+<form method="post" action="" id="demoForm">
+<ul>
+	<li><label for="txt">Choose a Text Style:</label>
+	    <div><input type="radio" name="txtstyle" id="txt" value="sans" tabindex="10" /> Sans-Serif (e.g., Verdana)<br />
+	    <input type="radio" name="txtstyle" value="serif" tabindex="20" /> Serif (e.g., <span class="serif">Georgia</span>)<br />
+        <input type="radio" name="txtstyle" value="fun" tabindex="30" /> Fun (e.g., <span class="fun">Comic Sans</span>)</div>
+	</li>
+	<li><label for="bdr">Choose a Top Border:</label>
+		<div>
+		<a href="#" id="bdr" tabindex="40"><img src="images/flower1.jpg" width="80" height="60" alt="Flower 1 Border Image" /></a>
+		<a href="#" tabindex="50"><img src="images/flower2.jpg" width="80" height="60" alt="Flower 2 Border Image" /></a><br />
+		<a href="#" tabindex="60"><img src="images/cake1.jpg" width="77" height="60" alt="Birthday Cake 1 Border Image" /></a>
+		<a href="#" tabindex="70"><img src="images/cake2.jpg" width="89" height="60" alt="Birthday Cake 2 Border Image" /></a><br />
+		<a href="#" tabindex="80"><img src="images/text1.jpg" width="200" height="44" alt="Happy Birthday Text 1 Border Image" /></a><br />
+		<a href="#" tabindex="90"><img src="images/text2.jpg" width="200" height="39" alt="Happy Birthday Text 2 Border Image" /></a></div>
+	</li>
+	<li><label for="recip">WebCard Recipient:</label> <input type="text" name="recipient" id="recip" tabindex="100" /></li>
+    <li><label for="msg">WebCard Message:<br />
+    <span id="available"><input type="text" name="totalcharacters" id="counter" size="4" value="300" readonly="readonly" /> characters left</span></label>
+    	<textarea name="message" id="msg" cols="30" rows="4" tabindex="110"></textarea></li>
+	<li><label for="sender">Your Name:</label> <input type="text" name="sender" id="sender" tabindex="120" /></li>
+    <li><label>&nbsp;</label> <input type="button" id="demo" value="Demo WebCard" tabindex="130" /></li>
+</ul>
+</form>
+<p class="hide"><strong>Printed from:</strong> http://www.webcards.com/demo.html</p>
+<div class="clr" id="footer">All content &copy; 2007 WebCards, Inc. All Rights Reserved.</div>
+</div>
+
+<div id="sidebar">
+<h3>Next Steps</h3>
+<ul>
+	<li><a href="create.html">Create an Account</a></li>
+	<li><a href="features.html">Read About Features</a></li>
+	<li><a href="pricing.html">Read About Pricing</a></li>
+</ul>
+</div>
+
+</div>
+</body>
+</html>
+

@@ -1,0 +1,10 @@
+body {font-size: 90%; line-height: 1.4; margin-top: 80px; padding: 0;}
+.sans {font-family: verdana,geneva,lucida,arial,sans-serif;}
+.serif {font-family: georgia,serif;}
+.fun {font-family: "comic sans ms",fantasy;}
+.flower1 {background: url(../images/flower1.jpg) top left repeat-x;}
+.flower2 {background: url(../images/flower2.jpg) top left repeat-x;}
+.cake1 {background: url(../images/cake1.jpg) top left repeat-x;}
+.cake2 {background: url(../images/cake2.jpg) top left repeat-x;}
+.text1 {background: url(../images/text1.jpg) top left repeat-x;}
+.text2 {background: url(../images/text2.jpg) top left repeat-x;}
