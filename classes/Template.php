@@ -39,7 +39,7 @@
                 
                 if (!file_exists($path)){
                     $this->validPath = false;
-                    #include 'fileNotFound.php';
+                    include 'fileNotFound.php';
                 }
                 
                 else {
@@ -89,7 +89,7 @@
         }
         
         public function generateContent(){
-            echo "<div id=\"content\"><a name=\"contentarea\"></a>$this->content</div>";
+            echo $this->content;
         }
         
         public function generateLocalNav(){

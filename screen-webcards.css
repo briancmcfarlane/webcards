@@ -37,7 +37,7 @@ p {margin: 1em 0;}
 #content form div {float: left;}
 #content form div, #recip, #msg, #sender {margin-bottom: 1.25em;}
 img {border: 0;}
-#content {margin: 0 200px 0 10px;}
+#content {margin: 0 20px;}
 #content li {margin-bottom: .5em; list-style: circle;}
 #content form ul {margin: 3em 0;}
 #recip, #sender {width: 18em;}
