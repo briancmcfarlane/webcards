@@ -5,7 +5,10 @@ $this->title = <<<_pageTitle_
 _pageTitle_;
 
 $this->content = <<<_pageContent_
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis quam tortor, et venenatis lorem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse potenti. Vestibulum ornare volutpat nisl, et cursus dolor iaculis eget. Duis mauris nunc, consequat id pulvinar quis, tristique fringilla eros. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam erat sapien, convallis in consectetur a, tempus a risus. Donec mauris mauris, dapibus sit amet dignissim vitae, ornare non nunc. Fusce bibendum sagittis pellentesque. Aenean pharetra tincidunt ullamcorper. Praesent sed neque malesuada est iaculis sodales. Nullam blandit varius elementum. Suspendisse id dui eget tortor eleifend feugiat nec feugiat justo. Proin gravida velit ac felis gravida nec feugiat orci suscipit. In id lacus risus, ut pulvinar sem. </p>
+        <p>Have you ever wanted to send someone a card but can't find a stamp? Don't have an envelope sitting around?</p>
+        <p>Neither do we. That's why we started this e-Online business for sending WebCards over the interWeb. Sign up for one of our great e-Plans to send hundreds, thousands or millions of WebCards to all your customers, family, friends or e-Friends.</p>
+        <div id="home-cta"><a href="#">Sign Up For WebCards Today!</a></div>
+        <div id="home-webcard-thumb">Example of a WebCard</div>
 _pageContent_;
 
 $this->localNav = <<<_localNav_
