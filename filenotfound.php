@@ -5,7 +5,7 @@ $this->title = <<<_pageTitle_
 _pageTitle_;
 
 $this->content = <<<_pageContent_
-        <p>We're sorry, we can't locate the file you've requested.</p>
+        <p>We're sorry, we can't locate the page you've requested.</p>
 _pageContent_;
 
 $this->localNav = <<<_localNav_

@@ -22,8 +22,6 @@ $this->content = <<<_pageContent_
         </div>
 _pageContent_;
 
-_pageContent_;
-
 $this->localNav = <<<_localNav_
         
 _localNav_;

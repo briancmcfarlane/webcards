@@ -27,7 +27,7 @@
                 $this->homepage = true;
                 $this->validPath = true;
                 $this->filePath[0] = 'home';
-                include 'indexContent.php';
+                include 'indexcontent.php';
             }
             
             else {
@@ -39,7 +39,7 @@
                 
                 if (!file_exists($path)){
                     $this->validPath = false;
-                    include 'fileNotFound.php';
+                    include 'filenotfound.php';
                 }
                 
                 else {
@@ -66,7 +66,10 @@
         
         
         public function linkJS(){
-            echo "<link type=\"text/javascript\"src=\"webcards-global.js\"/>";
+            echo "<script type=\"text/javascript\"src=\"webcards-global.js\"/></script>";
+            if ($this->filePath[0] == 'demo'){
+                echo "<script type=\"text/javascript\" src=\"webcards-demo.js\"></script>";
+            }
         }
         
         
