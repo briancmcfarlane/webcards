@@ -1,4 +1,6 @@
 <?php
+
+error_reporting(E_ALL ^ E_NOTICE);
 require 'classes/form-class.php';
 $form = new Form('contact');
 
