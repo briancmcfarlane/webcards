@@ -18,7 +18,7 @@
 <div id="container">
 <h1>WebCards</h1>
 <h2 id="tagline">An E-Card For Every Occasion</h2>
-
+    <?php $page->generateLoginBox(); ?>
     <?php $page->generateGlobalNav(); ?>
 
 <div class="clr">&nbsp;</div>

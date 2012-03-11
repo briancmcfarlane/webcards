@@ -66,10 +66,26 @@
         
         
         public function linkJS(){
-            echo "<script type=\"text/javascript\"src=\"webcards-global.js\"/></script>";
+            echo "<script type=\"text/javascript\"src=\"js/webcards-global.js\"/></script>";
             if ($this->filePath[0] == 'demo'){
-                echo "<script type=\"text/javascript\" src=\"webcards-demo.js\"></script>";
+                echo "<script type=\"text/javascript\" src=\"js/webcards-demo.js\"></script>";
             }
+        }
+        
+        public function generateLoginBox(){
+            
+            echo "<div id=\"accountLinks\">";
+            
+            if (isset($_SESSION['name'])){
+                echo "Welcome {$_SESSION['name']}.<br /><a href=\"?p=account-myaccount\">My Account</a>";
+            }
+            
+            else {
+                    echo "<a href=\"?p=account-login\">Log-in</a> or <a href=\"?p=signup-registration\">Sign up</a>";
+            }
+            
+            echo "</div>";
+            
         }
         
         

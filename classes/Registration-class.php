@@ -145,9 +145,9 @@ class Registration {
 
    // encrypt a combination of the password and the email address
    // so that a hacker would have even more difficulty decrypting it
-   $encodedPwd = sha1($_POST['password'] . $_POST['email']);
-   $fullName =  $_POST['Fname'] . ' ' . $_POST['Lname'];
    $formattedEmail = strtolower($_POST['email']);
+   $encodedPwd = sha1($_POST['password'] . $formattedEmail);
+   $fullName =  $_POST['Fname'] . ' ' . $_POST['Lname'];
 
    // add SimpleXML nodes for the new account
    $newAcct = $this->data->addChild('acct');
