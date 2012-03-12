@@ -140,6 +140,7 @@ class Login {
    $_SESSION['auth'] = 'y';
    $_SESSION['time'] = time();
    $_SESSION['timeout'] = 1800;
+   $_SESSION['name'] = $this->name;
 
 	// allowIn function is also used by the registration page to automatically log
 	// the user in once they create an account.     
@@ -149,11 +150,6 @@ class Login {
 	   exit;
 	}
 	
-	// sends the user name to the session when existing users login
-	if ($this->name) {
-	   $_SESSION['name'] = $this->name;
-	}
-
  }
 
 }
