@@ -5,12 +5,11 @@
         
         public $globalNavArray = array(
             
-            'home'=>array('Home','?p=home','140'),
-            'features'=>array('Features','?p=features','150'),
-            'pricing'=>array('Pricing','?p=pricing','160'),
-            'demo'=>array('Demo a WebCard','?p=demo','170'),
-            'purchase'=>array('Purchase a WebCard','?p=purchase','180'),
-            'support'=>array('Support','?p=support','190')
+            'home'=>array('Home','.','140'),
+            'features'=>array('Features','features','150'),
+            'pricing'=>array('Pricing','pricing','160'),
+            'demo'=>array('Demo a WebCard','demo','170'),
+            'support'=>array('Support','support','190')
         );
            
         
