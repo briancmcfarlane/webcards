@@ -1,0 +1,214 @@
+/* disabling default spacing */
+body, form, h1, h2, #tagline, h3, #tnav, #tnav li, #sidebar ul, #sidebar li, #content form ul, #content form li {
+margin: 0;
+padding: 0;
+}
+
+body {
+text-align: center;
+background: #669;
+margin-top: 5px;
+}
+#jump {
+position: absolute;
+top: -999em;
+}
+.hide {
+display: none;
+}
+
+/* text formatting */
+h1, #tagline {
+font: 220%/1.4 "Copperplate Gothic Light",serif;
+letter-spacing: 1px;
+}
+h2, h3 {
+font: 130%/1.4 verdana,geneva,lucida,arial,sans-serif;
+}
+#tagline {
+font-size: 150%;
+}
+h3 {
+font-size: 110%;
+}
+#container, input, textarea {
+font: 75%/1.4 verdana,geneva,lucida,arial,sans-serif;
+}
+input, textarea {
+font-size: 100%;
+}
+#footer, #sidebar, #available {
+font-size: 90%;
+}
+.serif {
+font-family: georgia,serif;
+}
+.fun {
+font-family: "comic sans ms",fantasy;
+}
+
+/* outer box */
+#container {
+margin: auto;
+width: 750px;
+border: 3px double #000;
+text-align: left;
+background: #fff;
+padding: 10px 0;
+position: relative;
+voice-family: "\"
+}
+\"";
+voice-family: inherit;
+width: 744px;
+}
+html>body #container {
+width: 744px;
+}
+
+/* masthead */
+h1 {
+margin: 0 0 10px 10px;
+}
+#tagline {
+position: absolute;
+top: 17px;
+right: 10px;
+}
+#accountLinks{
+position: absolute;
+top: 43px;
+right: 10px;
+}
+
+#tnav, #tnav li {
+line-height: 1;
+}
+#tnav {
+padding-left: 10px;
+border-bottom: 3px double #000;
+height: 2em;
+}
+#tnav li {
+float: left;
+margin-right: 3px;
+background: #999 url(../images/left.gif) top left no-repeat;
+}
+#tnav .current {
+background-color: #000;
+}
+#tnav a {
+display: block;
+padding: .5em;
+background: url(../images/right.gif) top right no-repeat;
+text-decoration: none;
+}
+#tnav a, #tnav .current a:hover, #tnav .current a:focus {
+color: #fff;
+}
+#tnav a:hover, #tnav a:focus {
+color: #ff0;
+}
+
+/* left-hand column */
+p {
+margin: 1em 0;
+}
+#content form div {
+float: left;
+}
+#content form div, #recip, #msg, #sender {
+margin-bottom: 1.25em;
+}
+#content form label {
+	text-transform:capitalize;
+}
+img {
+border: 0;
+}
+#content {
+margin: 0 20px;
+}
+#content li {
+margin-bottom: .5em;
+list-style: circle;
+}
+#content form ul {
+margin: 3em 0;
+}
+#recip, #sender {
+width: 18em;
+}
+#msg {
+width: 18em;
+height: 8em;
+}
+#content form img {
+border: 3px solid #fff;
+}
+
+/* right-hand column */
+#sidebar {
+position: absolute;
+top: 9.75em;
+right: 10px;
+width: 176px;
+border: 3px double #000;
+padding: 5px;
+voice-family: "\"
+}
+\"";
+voice-family: inherit;
+width: 160px;
+}
+html>body #sidebar {
+width: 160px;
+}
+#form li {
+margin: .5em 0;
+}
+#sidebar ul {
+margin-top: 1em;
+}
+#sidebar li {
+margin: 1em 0;
+}
+
+/* floated lists in content areas */
+#form label, #content form label {
+float: left;
+display: block;
+text-align: right;
+}
+#form label {
+width: 70px;
+margin-right: 3px;
+}
+#content form label {
+width: 12em;
+margin-right: 1em;
+}
+.clr, #content form li {
+clear: both;
+}
+#login{
+margin-left: 75px;
+}
+
+/* disabling default list styling */
+#tnav, #tnav li, #sidebar ul, #sidebar li, #content form ul, #content form li {
+list-style: none;
+}
+
+/* JavaScript-added classes */
+.error, #errorMessage {
+color: #f00;
+font-weight: bold;
+}
+.overLimit {
+background: #f00;
+color: #fff;
+}
+#content form .imgBorder {
+border: 3px outset #ccc;
+}

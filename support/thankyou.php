@@ -1,16 +1,22 @@
 <?php
+error_reporting(E_ALL ^ E_NOTICE);
+
 require 'classes/ValidateSession-class.php';
 $checkSession = new ValidateSession();
 
 $this->title = <<<_pageTitle_
-        WebCards: 404 file not found
+        WebCards: Support
 _pageTitle_;
 
 $this->content = <<<_pageContent_
-        <p>We're sorry, we can't locate the page you've requested.</p>
+    <h2>Thank You for Your Note.</h2>
+	<p>Someone will contact you soon.</p>
+
 _pageContent_;
 
 $this->localNav = <<<_localNav_
         
 _localNav_;
 ?>
+
+

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <webcard>
+        <user>jill.blevins@gmail.com</user>
+        <txtstyle>serif</txtstyle>
+        <bordr>Birthday Cake 1 Border Image</bordr>
+        <recipient>cre</recipient>
+        <message>cre</message>
+        <sender>cre</sender>
+    </webcard>
+    <webcard>
+        <user>jill.blevins@gmail.com</user>
+        <txtstyle>serif</txtstyle>
+        <bordr>Birthday Cake 1 Border Image</bordr>
+        <recipient>log</recipient>
+        <message>log</message>
+        <sender>log</sender>
+    </webcard>
+    <webcard>
+        <user>blevins@test.com</user>
+        <txtstyle>serif</txtstyle>
+        <bordr>Flower 1 Border Image</bordr>
+        <recipient>create</recipient>
+        <message>create</message>
+        <sender>creat</sender>
+    </webcard>
+    <webcard>
+        <user>new@new.com</user>
+        <txtstyle>serif</txtstyle>
+        <bordr>Happy Birthday Text 2 Border Image</bordr>
+        <recipient>logged in</recipient>
+        <message>logged in</message>
+        <sender>logged in</sender>
+    </webcard>
+    <webcard>
+        <user>jill.blevins@gmail.com</user>
+        <txtstyle>fun</txtstyle>
+        <bordr>Birthday Cake 1 Border Image</bordr>
+        <recipient>logged in existing</recipient>
+        <message>logged in existing</message>
+        <sender>logged in existing</sender>
+    </webcard>
+    <webcard>
+        <user>jill.blevins@gmail.com</user>
+        <txtstyle>serif</txtstyle>
+        <bordr>Flower 1 Border Image</bordr>
+        <recipient>demo</recipient>
+        <message>demo</message>
+        <sender>demo</sender>
+    </webcard>
+    <webcard>
+        <user>blevinsj@test.com</user>
+        <txtstyle>serif</txtstyle>
+        <bordr>Flower 1 Border Image</bordr>
+        <recipient>blevinsj</recipient>
+        <message>blevinsj</message>
+        <sender>blevinsj</sender>
+    </webcard>
+    <webcard>
+        <user>jill.blevins@gmail.com</user>
+        <txtstyle>sans</txtstyle>
+        <bordr>Flower 2 Border Image</bordr>
+        <recipient>jill</recipient>
+        <message>jill</message>
+        <sender>jill</sender>
+    </webcard>
+    <webcard>
+        <user>jill.blevins@gmail.com</user>
+        <txtstyle>serif</txtstyle>
+        <bordr>Birthday Cake 1 Border Image</bordr>
+        <recipient>everyone</recipient>
+        <message>Let them eat cake</message>
+        <sender>Marie</sender>
+    </webcard>
+</root>

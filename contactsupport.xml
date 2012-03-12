@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <msg>
+        <email>jill.blevins@gmail.com</email>
+        <name>Jill Blevins</name>
+        <subject>Test</subject>
+        <message>Test</message>
+    </msg>
+</root>

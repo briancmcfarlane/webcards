@@ -18,6 +18,11 @@ var wc_demo = {
   
   // object reference to demo button
   demoBtn : null,
+  demoBtnClicked : false,
+
+  // object reference to save button
+  signupBtn : null,
+  signupBtnClicked : false,
   
   // properties/object references for border images
   borderImgs : null,
@@ -40,6 +45,7 @@ var wc_demo = {
      wc_demo.theRecipient = wc_global.getObj('recip');
      wc_demo.theSender = wc_global.getObj('sender');
      wc_demo.demoBtn = wc_global.getObj('demo');
+     wc_demo.signupBtn = wc_global.getObj('signup');
      wc_demo.borderImgs = document.getElementsByTagName('img');
      wc_demo.allBorderImgs = wc_demo.borderImgs.length;
      wc_demo.theFonts = document.getElementsByName('txtstyle');
@@ -49,6 +55,7 @@ var wc_demo = {
      wc_demo.configCounter();
      wc_demo.configImgs();
      wc_demo.configDemoBtn();
+	 wc_demo.configSignupBtn();
   },
 
   // assign event handler to textarea
@@ -63,10 +70,12 @@ var wc_demo = {
         totalCharacters = 'over';
         wc_demo.theCounter.className = 'overLimit';
         wc_demo.demoBtn.disabled = true;
+		wc_demo.signupBtn.disabled = true;
      }
      else {
         wc_demo.theCounter.className = '';
         wc_demo.demoBtn.disabled = false;
+		wc_demo.signupBtn.disabled = false;
      }
      wc_demo.theCounter.value = totalCharacters;
   },
@@ -90,11 +99,19 @@ var wc_demo = {
   },
   
   configDemoBtn : function() {
-     wc_global.addEvent(this.demoBtn, 'click', this.validateSelections);
+	 wc_global.addEvent(this.signupBtn, 'click', function (){wc_demo.signupBtnClicked = false;});
+ 	 wc_global.addEvent(this.demoBtn, 'click', function (){wc_demo.demoBtnClicked = true;});
+	 wc_global.addEvent(this.demoBtn, 'click', this.validateSelections);
+  },
+
+  configSignupBtn : function() {
+	 wc_global.addEvent(this.demoBtn, 'click', function (){wc_demo.demoBtnClicked = false;});
+ 	 wc_global.addEvent(this.signupBtn, 'click', function (){wc_demo.signupBtnClicked = true;});	 
+     wc_global.addEvent(this.signupBtn, 'click', this.validateSelections);
   },
   
   // checking for proper data existence
-  validateSelections : function() {
+  validateSelections : function(btn) {
      
      // font choice validation
      if (!wc_demo.fontIsSelected) { wc_demo.theLabels[0].className = 'error'; }
@@ -141,7 +158,15 @@ var wc_demo = {
         wc_demo.createCookie('recipient', wc_demo.theRecipient.value);
         wc_demo.createCookie('message', wc_demo.theTextArea.value);
         wc_demo.createCookie('sender', wc_demo.theSender.value);
-        window.open("preview/demo-card.html","_blank","top=25,left=25,width=400,height=290,scrollbars=0,resizable=0,location=0,toolbar=0,status=0,menubar=0,directories=0");
+	
+		if(wc_demo.demoBtnClicked) {
+			window.open("preview/demo-card.html","_blank","top=25,left=25,width=400,height=290,scrollbars=0,resizable=0,location=0,toolbar=0,status=0,menubar=0,directories=0");
+		}
+		else {
+			wc_demo.createCookie('signup', wc_demo.signupBtnClicked);
+			window.location.reload();
+		}
+		
      }
      else {
         if (!document.getElementById('errorMessage')) {

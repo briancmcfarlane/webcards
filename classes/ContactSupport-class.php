@@ -2,12 +2,11 @@
 
 // suppress notices, since some variables will not be set
 error_reporting(E_ALL ^ E_NOTICE);
-require 'Login-class.php';
 
-class Registration {
+class ContactSupport {
 
  // property: path to confirmation page
- public $redir = '?p=signup-success';
+ public $redir = '?p=support-thankyou';
 
  // method called when object instantiated
  // pass it the path to the XML file
@@ -34,7 +33,7 @@ class Registration {
 		 $this->outputErrors();
 	 }
 	 else {
-		 $this->createAcct();
+		 $this->createMsg();
 		 
 		 // and redirect the user to the confirmation page
 		 header("Location: $this->redir");
@@ -49,11 +48,20 @@ class Registration {
 
   // this will hold our error messages
   $errors = array();
+  
+    if  (empty($_POST['first_name'])){
+        $errors[] = 'Please enter your first name.';
+    }
+    
+ 	if  (empty($_POST['last_name'])){
+        $errors[] = 'Please enter your last name.';
+    }
+
 
   // this block of code deals with the email address
   // if it is not set, output the proper error
-  if (empty($_POST['email'])) {
-    $errors[] = 'Please enter an email address.';
+  if  (empty($_POST['email'])){
+	    $errors[] = 'Please enter an email address.';
   }
 
   // if it is set, remove empty spaces on the ends
@@ -68,75 +76,19 @@ class Registration {
     // if the format checks out then see if the account already exists
     // if it already exists, output the proper error
     else {
-
-      $acctExists = false;
       
       $_POST['email'] = strtolower($_POST['email']);
 
-      for ($x=0, $allAccts=count($this->data->acct); $x<$allAccts; $x++) {
-
-        if ((string)$this->data->acct[$x]->email === $_POST['email']) {
-           $acctExists = true;
-        }
-
-      }
-
-      if ($acctExists) {
-
-        $errors[] = 'An account has already been established for that address.
-                     Enter another email address.';
-
-      }
-
     }
-
-    // this block of code deals with the password
-    // if the user neglected to enter either the password or confirmation
-    // then trigger an error
-    if (empty($_POST['password']) || empty($_POST['confirmpassword'])) {
-      $errors[] = 'Please provide a password and then re-confirm the password.';
-    }
-
-    // if they were entered and do not match, output an error
-    elseif ($_POST['password'] !== $_POST['confirmpassword']) {
-      $errors[] = 'Passwords do not match.';
-    }
-
-    // clean up empty spaces and check for proper formatting, outputting error messages
-    else {
-
-      $_POST['password'] = trim($_POST['password']);
-      $numCharacters = strlen($_POST['password']);
-      if ($numCharacters < 7) {
-         $errors[] = 'Password does not meet length requirements.';
-      }
-      if (!preg_match('/[a-z]/', $_POST['password']) ||
-          !preg_match('/[A-Z]/', $_POST['password']) ||
-          !preg_match('/[0-9]/', $_POST['password'])) {
-            $errors[] = 'Password is not formatted properly.';
-      }
-
+  }
+       
+    if  (empty($_POST['subject'])){
+        $errors[] = 'Please enter the subject number.';
     }
     
-    if (empty($_POST['Fname'])){
-        $errors[] = 'Please enter your first name.';
+    if  (empty($_POST['message'])){
+        $errors[] = 'Please enter your message.';
     }
-    
-    if (empty($_POST['Lname'])){
-        $errors[] = 'Please enter your last name.';
-    }
-    
-    if (empty($_POST['ccnumber'])){
-        $errors[] = 'Please enter your credit card number.';
-    }
-    
-    if (empty($_POST['plan'])){
-        $errors[] = 'Please select a subscription plan.';
-    }
-    
-    
-    
-   }
 
   return $errors;
 
@@ -150,22 +102,20 @@ class Registration {
 
  }
 
- public function createAcct() {
+ public function createMsg() {
 
    // encrypt a combination of the password and the email address
    // so that a hacker would have even more difficulty decrypting it
    $formattedEmail = strtolower($_POST['email']);
-   $encodedPwd = sha1($_POST['password'] . $formattedEmail);
-   $fullName =  $_POST['Fname'] . ' ' . $_POST['Lname'];
+   $fullName =  $_POST['first_name'] . ' ' . $_POST['last_name'];
 
 
-   // add SimpleXML nodes for the new account
-   $newAcct = $this->data->addChild('acct');
+   // add SimpleXML nodes for the new support request
+   $newAcct = $this->data->addChild('msg');
    $newAcct->addChild('email', $formattedEmail);
-   $newAcct->addChild('password', $encodedPwd);
    $newAcct->addChild('name', $fullName);
-   $newAcct->addChild('ccnumber', $_POST['ccnumber']);
-   $newAcct->addChild('plan', $_POST['plan']);
+   $newAcct->addChild('subject', $_POST['subject']);
+   $newAcct->addChild('message', $_POST['message']);
 
    // format the data for easy reading
    $xmlData = xmlPrettyPrint($this->data->asXML());
@@ -173,8 +123,7 @@ class Registration {
    // save the account data back to the XML file
    file_put_contents($this->dataFilePath, $xmlData);
    
-   $reg = new Login('access.xml');
-   $reg->allowIn();
+
  }
 
 }

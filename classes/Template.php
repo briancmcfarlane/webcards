@@ -71,13 +71,13 @@
                 echo "<script type=\"text/javascript\" src=\"js/webcards-demo.js\"></script>";
             }
         }
-        
+		
+		        
         public function generateLoginBox(){
             
             echo "<div id=\"accountLinks\">";
-            
             if (isset($_SESSION['name'])){
-                echo "Welcome {$_SESSION['name']}.<br /><a href=\"?p=account-myaccount\">My Account</a>";
+                echo "Welcome {$_SESSION['name']}<br /><a href=\"?p=account-myaccount\">My Account</a> or <a href=\"?p=account-logout\">Log Out</a>";
             }
             
             else {
@@ -87,7 +87,6 @@
             echo "</div>";
             
         }
-        
         
         public function generateGlobalNav(){
             

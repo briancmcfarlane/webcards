@@ -1,0 +1,6 @@
+body, h1, h2 {background: #fff; color: #000; font: 12pt/1.3 georgia,serif;}
+#tnav, #login, #footer, #jump, .clr, #tagline {display: none;}
+h1 {font-size: 20pt;}
+h2 {font-size: 16pt;}
+li {margin-bottom: 2pt;}
+a {color: #000;}
