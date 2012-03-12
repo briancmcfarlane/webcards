@@ -5,8 +5,6 @@ error_reporting(E_ALL ^ E_NOTICE);
 require 'classes/ValidateSession-class.php';
 $checkSession = new ValidateSession();
 
-require 'classes/Form-class.php';
-$form = new Form();
 
 $this->title = <<<_pageTitle_
         WebCards: Support
