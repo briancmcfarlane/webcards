@@ -1,5 +1,11 @@
 # make sure mod_rewrite is working
-RewriteEngine on
+RewriteEngine On
 
-# remap paths
+# stop processing instructions if the file extension is one of these
+RewriteRule \.(css|jpeg|jpg|gif|png|js|html|xml|pdf|doc|xls|ppt|docx|xsl)$ - [L]
+
+# remap paths with 2 parts to them
+RewriteRule ^([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/?$ index.php?p=$1-$2 [L]
+
+# remap paths with 1 part only
 RewriteRule ^([A-Za-z0-9-]+)/?$ index.php?p=$1 [L]
