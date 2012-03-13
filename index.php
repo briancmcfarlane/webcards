@@ -8,6 +8,7 @@
 <head>
 	<title><?php $page->printTitle(); ?></title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <base href="/webcards/" />
 	<link rel="stylesheet" type="text/css" href="css/screenwebcards.css" media="screen,projection" />
 	<link rel="stylesheet" type="text/css" href="css/printwebcards.css" media="print" />
         <?php $page->linkJS(); ?>
