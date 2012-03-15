@@ -7,7 +7,7 @@ require 'Login-class.php';
 class Registration {
 
  // property: path to confirmation page
- public $redir = '?p=signup-success';
+ public $redir = '/webcards/signup/success';
 
  // method called when object instantiated
  // pass it the path to the XML file

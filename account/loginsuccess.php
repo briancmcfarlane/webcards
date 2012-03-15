@@ -13,7 +13,7 @@ $this->content = <<<_pageContent_
 <h2>Login Successful</h2>
 <p>Congratulations!  You have logged in successfully.</p>
 
-<p><a href="?p=account-logout">Logout</a></p>
+<p><a href="/webcards/account/logout">Logout</a></p>
 
 _pageContent_;
 

@@ -19,7 +19,7 @@ public function __construct($dataFile) {
 		 $_SESSION = array_merge($_SESSION,$_COOKIE);
 		 
 		 if (isset($_SESSION["email"])) {
-			$this->redir = '?p=account-myaccount';	
+			$this->redir = '/webcards/account/myaccount';	
 				 
 		 	// property: SimpleXML object
 		 	$this->data = simplexml_load_file($dataFile);
@@ -30,7 +30,7 @@ public function __construct($dataFile) {
 		 	$this->saveData();
 		 }
 		 else {
-			 $this->redir = '?p=signup-registration';	
+			 $this->redir = '/webcards/signup/registration';	
 		 }
 		
 		 // and redirect the user to the confirmation page

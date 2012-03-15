@@ -6,7 +6,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 class ContactSupport {
 
  // property: path to confirmation page
- public $redir = '?p=contact-thankyou';
+ public $redir = '/webcards/contact/thankyou';
 
  // method called when object instantiated
  // pass it the path to the XML file

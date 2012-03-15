@@ -14,12 +14,12 @@ _pageTitle_;
 $this->content = <<<_pageContent_
 <h2>Login</h2>
 
-<p>Not a member? <a href="?p=signup-registration">Sign up</a> now</p>
+<p>Not a member? <a href="/webcards/signup/registration">Sign up</a> now</p>
 
 {$reg->logout_msg}
 {$reg->error_msg}
 
-<form method="post" action="?p=account-login">
+<form method="post" action="/webcards/account/login">
 	<div>
 		<label for="emailadr">Email Address:</label><input type="text" size="20" name="email" id="emailadr" value="{$_POST['email']}" /><br />
 		<label for="passwd">Password:</label><input type="password" size="20" name="pwd" id="passwd" /><br /><br />
