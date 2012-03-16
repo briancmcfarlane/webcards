@@ -118,12 +118,8 @@ class Registration {
 
     }
     
-    if (empty($_POST['Fname'])){
-        $errors[] = 'Please enter your first name.';
-    }
-    
-    if (empty($_POST['Lname'])){
-        $errors[] = 'Please enter your last name.';
+    if (empty($_POST['name'])){
+        $errors[] = 'Please enter your name.';
     }
     
     if (empty($_POST['ccnumber'])){
@@ -156,16 +152,16 @@ class Registration {
    // so that a hacker would have even more difficulty decrypting it
    $formattedEmail = strtolower($_POST['email']);
    $encodedPwd = sha1($_POST['password'] . $formattedEmail);
-   $fullName =  $_POST['Fname'] . ' ' . $_POST['Lname'];
 
 
    // add SimpleXML nodes for the new account
    $newAcct = $this->data->addChild('acct');
    $newAcct->addChild('email', $formattedEmail);
    $newAcct->addChild('password', $encodedPwd);
-   $newAcct->addChild('name', $fullName);
+   $newAcct->addChild('name', $_POST['name']);
    $newAcct->addChild('ccnumber', $_POST['ccnumber']);
    $newAcct->addChild('plan', $_POST['plan']);
+   $newAcct->addChild('isAdmin', 'false');
 
    // format the data for easy reading
    $xmlData = xmlPrettyPrint($this->data->asXML());
