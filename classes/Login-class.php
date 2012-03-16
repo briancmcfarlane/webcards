@@ -6,7 +6,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 class Login {
 
  // property: path to confirmation page
- public $redir = '?p=account-myaccount';
+ public $redir = '/webcards/account/myaccount';
  
  // property: user name
  public $name = '';
@@ -145,7 +145,7 @@ class Login {
 	// allowIn function is also used by the registration page to automatically log
 	// the user in once they create an account.     
    if (isset($_SESSION["signup"])) {
-	   $this->redir  = '?p=demo';
+	   $this->redir  = '/webcards/demo';
 	   header("Location: $this->redir");
 	   exit;
 	}

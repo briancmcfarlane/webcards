@@ -12,9 +12,9 @@ _pageTitle_;
 
 $this->content = <<<_pageContent_
         <h2>Demo a WebCard</h2>
-<p>This demo shows a little of what is possible with WebCards.  Consult our <a href="?p=features">features list</a> for the complete picture!</p>
+<p>This demo shows a little of what is possible with WebCards.  Consult our <a href="/webcards/features">features list</a> for the complete picture!</p>
 <p><strong>Note:</strong> All fields are required.</p>
-<form method="post" action="?p=demo" id="demoForm">
+<form method="post" action="/webcards/demo" id="demoForm">
 <ul>
 	<li><label for="txt">Choose a Text Style:</label>
 	    <div><input type="radio" name="txtstyle" id="txt" value="sans" tabindex="10" /> Sans-Serif (e.g., Verdana)<br />
@@ -42,7 +42,7 @@ $this->content = <<<_pageContent_
 	</li>
 </ul>
 </form>
-<p class="hide"><strong>Printed from:</strong> http://www.webcards.com/?p=demo.php</p>
+<p class="hide"><strong>Printed from:</strong> http://www.webcards.com/demo</p>
 _pageContent_;
 
 $this->localNav = <<<_localNav_

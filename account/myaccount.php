@@ -14,7 +14,7 @@ $this->content = <<<_pageContent_
     <h3>Your Account</h3>
 	<p>One day this will be your account page.</p>
 	
-	<p><a href="?p=account-logout">Logout</a></p>
+	<p><a href="/webcards/account/logout">Logout</a></p>
 
 
 _pageContent_;

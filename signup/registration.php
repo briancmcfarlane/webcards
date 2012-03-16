@@ -8,10 +8,10 @@ _pageTitle_;
 
 $this->content = <<<_pageContent_
         <h2>Registration</h2>
-		<p><a href="?p=account-login">Already a member?</a></p>
+		<p><a href="/webcards/account/login">Already a member?</a></p>
 
         {$reg->error_msg}
-        <form method="post" action="?p=signup-registration"><div>
+        <form method="post" action="/webcards/signup/registration"><div>
             <label for="emailAddr">Email Address: </label><input type="text" size="20" name="email" id="emailAddr" value="{$_POST['email']}"/><br/>
             <label for="password">Password: </label><input type="password" size="20" name="password" id="password" /><br/>
             <label for="confirmpassword">Confirm Password: </label><input type="password" size="20" name="confirmpassword" id="confirmpassword" /><br/>

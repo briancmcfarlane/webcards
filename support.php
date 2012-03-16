@@ -16,7 +16,7 @@ $this->content = <<<_pageContent_
 	<p>Please send us your contact information and message. You will hear back from us soon.</p>
 
 	{$req->error_msg}
-	<form method="post" action="?p=support"><div>
+	<form method="post" action="/webcards/support"><div>
 			<label for="first_name">First Name: </label><input type="text" size="20" name="first_name" id="first_name" value="{$_POST['first_name']}" /><br />
 			<label for="last_name">Last Name: </label><input type="text" size="20" name="last_name" id="last_name" value="{$_POST['last_name']}" /><br />
             <label for="email">Email Address: </label><input type="text" size="20" name="email" id="email" value="{$_POST['email']}"/><br/>

@@ -5,7 +5,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 class ValidateSession {
 
  // property: path to login page
- public $redir = '?p=home';
+ public $redir = '/webcards/home';
 
 
  // most of the time we are not logging out

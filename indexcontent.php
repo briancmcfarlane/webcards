@@ -9,7 +9,7 @@ _pageTitle_;
 $this->content = <<<_pageContent_
         <p>Have you ever wanted to send someone a card but can't find a stamp? Don't have an envelope sitting around?</p>
         <p>Neither do we. That's why we started this e-Online business for sending WebCards over the interWeb. Sign up for one of our great e-Plans to send hundreds, thousands or millions of WebCards to all your customers, family, friends or e-Friends.</p>
-        <div id="home-cta"><a href="?p=signup-registration">Sign Up For WebCards Today!</a></div>
+        <div id="home-cta"><a href="/webcards/signup/registration">Sign Up For WebCards Today!</a></div>
         <div id="home-webcard-thumb">Example of a WebCard</div>
 _pageContent_;
 

@@ -76,11 +76,11 @@
             
             echo "<div id=\"accountLinks\">";
             if (isset($_SESSION['name'])){
-                echo "Welcome {$_SESSION['name']}<br /><a href=\"?p=account-myaccount\">My Account</a> or <a href=\"?p=account-logout\">Log Out</a>";
+                echo "Welcome {$_SESSION['name']}<br /><a href=\"/webcards/account/myaccount\">My Account</a> or <a href=\"/webcards/account/logout\">Log Out</a>";
             }
             
             else {
-                    echo "<a href=\"?p=account-login\">Log-in</a> or <a href=\"?p=signup-registration\">Sign up</a>";
+                    echo "<a href=\"/webcards/account/login\">Log-in</a> or <a href=\"/webcards/signup/registration\">Sign up</a>";
             }
             
             echo "</div>";
