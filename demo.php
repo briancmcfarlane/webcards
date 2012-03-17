@@ -23,12 +23,14 @@ $this->content = <<<_pageContent_
 	</li>
 	<li><label for="bdr">Choose a Top Border:</label>
 		<div>
-		<a href="#" id="bdr" tabindex="40"><img src="images/flower1.jpg" width="80" height="60" alt="Flower 1 Border Image" /></a>
-		<a href="#" tabindex="50"><img src="images/flower2.jpg" width="80" height="60" alt="Flower 2 Border Image" /></a><br />
-		<a href="#" tabindex="60"><img src="images/cake1.jpg" width="77" height="60" alt="Birthday Cake 1 Border Image" /></a>
-		<a href="#" tabindex="70"><img src="images/cake2.jpg" width="89" height="60" alt="Birthday Cake 2 Border Image" /></a><br />
-		<a href="#" tabindex="80"><img src="images/text1.jpg" width="200" height="44" alt="Happy Birthday Text 1 Border Image" /></a><br />
-		<a href="#" tabindex="90"><img src="images/text2.jpg" width="200" height="39" alt="Happy Birthday Text 2 Border Image" /></a></div>
+		<a href="#" id="bdr" tabindex="40"><img src="images/theme-dentist-a.png" width="100" height="100" alt="Dentist Appt. A Border Image" /></a>
+		<a href="#" tabindex="50"><img src="images/theme-dentist-b.png" width="100" height="100" alt="Dentist Appt. B Border Image" /></a><br />
+		<a href="#" tabindex="60"><img src="images/theme-house-a.png" width="100" height="100" alt="Open House A Border Image" /></a>
+		<a href="#" tabindex="70"><img src="images/theme-house-b.png" width="100" height="100" alt="Open House B Border Image" /></a><br />
+		<a href="#" tabindex="80"><img src="images/theme-pet-a.png" width="100" height="100" alt="Vet Appt. A Border Image" /></a>
+		<a href="#" tabindex="90"><img src="images/theme-pet-b.png" width="100" height="100" alt="Vet Appt. B Border Image" /></a><br />
+		<a href="#" tabindex="100"><img src="images/theme-vd-a.png" width="100" height="100" alt="Valentine's Day A Border Image" /></a>
+		<a href="#" tabindex="110"><img src="images/theme-vd-b.png" width="100" height="100" alt="Valentine's Day B Border Image" /></a></div>
 		<input type="hidden" name="bordr" id="bordr" value="bordr" />
 	</li>
 	<li><label for="recip">WebCard Recipient:</label> <input type="text" name="recipient" id="recip" tabindex="100" /></li>
