@@ -13,7 +13,7 @@ $this->title = <<<_pageTitle_
 _pageTitle_;
 
 $this->content = <<<_pageContent_
-    <h3>Your Account</h3>
+    <h2>Your Account</h2>
         <p>Account Details</p>
         <form method="post" action=""><div>
             <label for="emailAddr">Email Address: </label><input type="text" size="20" name="email" id="emailAddr" value="{$_SESSION['email']}"/><br/>

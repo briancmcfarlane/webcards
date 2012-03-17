@@ -4,6 +4,10 @@ margin: 0;
 padding: 0;
 }
 
+table {
+  border-collapse: collapse;
+}
+
 body {
 text-align: center;
 background: #00A6F0;
@@ -33,6 +37,10 @@ font: 130%/1.4 verdana,geneva,lucida,arial,sans-serif;
 font-size: 80%;
 text-transform: lowercase;
 }
+h2 {
+font-weight: bold;
+color: #999;
+}
 h3 {
 font-size: 110%;
 }
@@ -51,10 +59,6 @@ font-family: georgia,serif;
 .fun {
 font-family: "comic sans ms",fantasy;
 }
-input[type="text"],textarea {
-border: 1px solid #999;
-}
-
 a {
 color: #00A6F0;
 }
@@ -92,7 +96,7 @@ top: 8.3em;
 left: 3.4em;
 padding: .5em;
 }
-#accountLinks{
+#accountLinks {
 position: absolute;
 top: 2em;
 right: 1em;
@@ -125,6 +129,9 @@ font-weight: bold;
 #tnav a:hover, #tnav a:focus {
 background: #004D70;
 }
+#tnav .current a:hover {
+background: inherit;
+}
 
 /* left-hand column */
 p {
@@ -136,8 +143,10 @@ float: left;
 #content form div, #recip, #msg, #sender {
 margin-bottom: 1.25em;
 }
+
+}
 #content form label {
-	text-transform:capitalize;
+text-transform: capitalize;
 }
 img {
 border: 0;
@@ -152,8 +161,9 @@ list-style: circle;
 #content form ul {
 margin: 3em 0;
 }
-#recip, #sender {
+#recip, #sender, textarea, #support-form input[type="text"], #name, #password, #confirmpassword, #emailAddr, #ccnumber {
 width: 18em;
+border: 1px solid #999;
 }
 #msg {
 width: 18em;
@@ -162,6 +172,21 @@ height: 8em;
 #content form img {
 border: 3px solid #fff;
 }
+table {
+  width: 100%;
+}
+th,td {
+  padding: .5em 1em;
+  border: 1px solid #999;
+}
+th {
+  background: #00A6F0;
+  color: #fff;
+  border-color: #00A6F0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 
 /* right-hand column */
 #sidebar {
@@ -207,7 +232,7 @@ margin-right: 1em;
 .clr, #content form li {
 clear: both;
 }
-#login{
+#login {
 margin-left: 75px;
 }
 

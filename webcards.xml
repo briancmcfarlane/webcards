@@ -72,4 +72,12 @@
         <message>Let them eat cake</message>
         <sender>Marie</sender>
     </webcard>
+    <webcard>
+        <user>testuser@test.com</user>
+        <txtstyle>serif</txtstyle>
+        <bordr>Dentist Appt. A Border Image</bordr>
+        <recipient>testuser@test.com</recipient>
+        <message>This is a test message.</message>
+        <sender>Test User</sender>
+    </webcard>
 </root>

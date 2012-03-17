@@ -8,14 +8,8 @@ $this->title = <<<_pageTitle_
 _pageTitle_;
 
 $this->content = <<<_pageContent_
-        <div id="features-plans">
-                <h3>Bronze Plan</h3>
-                <p>Description of Bronze Plan.</p>
-                <h3>Silver Plan</h3>
-                <p>Description of Silver Plan.</p>
-                <h3>Gold Plan</h3>
-                <p>Description of Gold Plan.</p>
-        </div>
+  <h2>Features</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         <div id="features-themes">
                 <p>Choose between several different occassions for your WebCards.</p>
                 <h3>Theme 1</h3>
