@@ -56,4 +56,12 @@
         <ccnumber>41111111111111111</ccnumber>
         <plan>bronze</plan>
     </acct>
+    <acct>
+        <email>testuser@test.com</email>
+        <password>d33c779bda42548f546e437dcce0157d60152957</password>
+        <name>Test User</name>
+        <ccnumber>123456789</ccnumber>
+        <plan>bronze</plan>
+        <isAdmin>false</isAdmin>
+    </acct>
 </root>

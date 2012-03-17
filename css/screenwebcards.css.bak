@@ -6,9 +6,8 @@ padding: 0;
 
 body {
 text-align: center;
-background: #00A6F0;
-color: #555;
-margin-top: 3em;
+background: #669;
+margin-top: 5px;
 }
 #jump {
 position: absolute;
@@ -20,24 +19,20 @@ display: none;
 
 /* text formatting */
 h1, #tagline {
-font: 520%/1.4 georgia,serif;
-font-weight: bold;
-color: #00A6F0;
-letter-spacing: .1px;
-text-shadow: .1em 0 0 #eee;
+font: 220%/1.4 "Copperplate Gothic Light",serif;
+letter-spacing: 1px;
 }
 h2, h3 {
 font: 130%/1.4 verdana,geneva,lucida,arial,sans-serif;
 }
 #tagline {
-font-size: 80%;
-text-transform: lowercase;
+font-size: 150%;
 }
 h3 {
 font-size: 110%;
 }
 #container, input, textarea {
-font: 100%/1.4 verdana,geneva,lucida,arial,sans-serif;
+font: 75%/1.4 verdana,geneva,lucida,arial,sans-serif;
 }
 input, textarea {
 font-size: 100%;
@@ -51,22 +46,15 @@ font-family: georgia,serif;
 .fun {
 font-family: "comic sans ms",fantasy;
 }
-a {
-color: #00A6F0;
-}
-a:hover {
-color: #004D70;
-text-decoration: none;
-}
 
 /* outer box */
 #container {
 margin: auto;
 width: 750px;
+border: 3px double #000;
 text-align: left;
 background: #fff;
-border: 2px solid #bbb;
-padding: 20px 1em 3em;
+padding: 10px 0;
 position: relative;
 voice-family: "\"
 }
@@ -84,42 +72,42 @@ margin: 0 0 10px 10px;
 }
 #tagline {
 position: absolute;
-top: 8.3em;
-left: 3.4em;
-padding: .5em;
+top: 17px;
+right: 10px;
 }
 #accountLinks{
 position: absolute;
-top: 2em;
-right: 1em;
+top: 43px;
+right: 10px;
 }
 
 #tnav, #tnav li {
 line-height: 1;
 }
 #tnav {
-padding-left: 1em;
+padding-left: 10px;
+border-bottom: 3px double #000;
 height: 2em;
 }
 #tnav li {
 float: left;
-margin-right: .5em;
-background: #999;
+margin-right: 3px;
+background: #999 url(../images/left.gif) top left no-repeat;
 }
 #tnav .current {
-background-color: #00A6F0;
+background-color: #000;
 }
 #tnav a {
 display: block;
-padding: .5em 1em;
+padding: .5em;
+background: url(../images/right.gif) top right no-repeat;
 text-decoration: none;
 }
 #tnav a, #tnav .current a:hover, #tnav .current a:focus {
 color: #fff;
-font-weight: bold;
 }
 #tnav a:hover, #tnav a:focus {
-background: #004D70;
+color: #ff0;
 }
 
 /* left-hand column */
