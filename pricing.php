@@ -1,4 +1,6 @@
 <?php
+require 'classes/ValidateSession-class.php';
+$checkSession = new ValidateSession();
 
 $this->title = <<<_pageTitle_
         WebCards: Pricing

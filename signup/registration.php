@@ -3,11 +3,12 @@ require 'classes/registration-class.php';
 $reg = new Registration('access.xml');
  
 $this->title = <<<_pageTitle_
-        WebCards: Home
+        WebCards: Register for Webcards
 _pageTitle_;
 
 $this->content = <<<_pageContent_
         <h2>Registration</h2>
+                <p>Passwords must be at least 7 characters long, and must include an uppercase letter, a lowercase letter and a number.</p>
 		<p><a href="/webcards/account/login">Already a member?</a></p>
 
         {$reg->error_msg}
