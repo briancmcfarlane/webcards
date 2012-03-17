@@ -172,6 +172,10 @@ height: 8em;
 #content form img {
 border: 3px solid #fff;
 }
+h3 {
+font-weight: bold;
+color: #777;
+}
 table {
   width: 100%;
 }
