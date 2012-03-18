@@ -2,82 +2,78 @@
 
 error_reporting(E_ALL ^ E_NOTICE);
 
+
 class ValidateSession {
+// property: path to login page
+public $redir = '/webcards/account/login';
 
- // property: path to login page
- public $redir = '/webcards/home';
+// most of the time we are not logging out
+// so set that flag to false by default
+public function __construct($logout = false) {
+	
+	// determine the current time in seconds since the Epoch
+	$this->now = time();
 
+	// load the session
+	session_start();
 
- // most of the time we are not logging out
- // so set that flag to false by default
- public function __construct($logout = false) {
+	//Validate Session is called on everypage for the header
+	//Login is not required to view the whole site so we must 
+	//check to see if the user has even tried to login yet
+	if (isset ($_SESSION['email'])) {
 
-   // determine the current time in seconds since the Epoch
-   $this->now = time();
+		// determine if timeout has occurred
+		// or logout has occurred
+		if ($this->now > $_SESSION['time'] + $_SESSION['timeout']) {
 
-   // load the session variables
-   session_start();
+			$this->removeSession();
+	
+			// redirect to the login page with a flag for the timeout
+			$this->doRedirect('?timeout=y');
+		}
+		
+		// check to see if logout has occurred
+		elseif ($logout) {
+				
+			$this->removeSession();
+		
+			// redirect to the login page with a flag for the logout
+			$this->doRedirect();
+		}
+	
+		// otherwise just reset the clock
+		else {
+	
+			// all is well; reset the timer
+			$_SESSION['time'] = $this->now;
+		}
+	}
+}
 
-   // if there is no authentication variable in the session
-   // then load the login screen with no messages
-   if (empty($_SESSION['auth'])) {
+public function checkAuthorization() {
+	if(empty($_SESSION['auth'])) {
+		$this->doRedirect();
+	}
+}
 
-//     $this->doRedirect();
+public function doRedirect() {
+	header("Location: {$this->redir}");
+   	exit;
+}
 
-   }
+public function removeSession() {
 
-   // determine if timeout has occurred
-   // or logout has occurred
-   elseif ($this->now > $_SESSION['time'] + $_SESSION['timeout']) {
+	// empty the session super global array
+   	$_SESSION = array();
 
-     $this->removeSession();
+   	// wipe the session cookie
+   	if (!empty($_COOKIE[session_name()])) {
+   		setcookie(session_name(), '', time() - 60*60*24, '/');
+   	}
 
-     // redirect to the login page with a flag for the timeout
-     $this->doRedirect('?timeout=y');
-
-   }
-
-   // check to see if logout has occurred
-   elseif ($logout) {
-
-     $this->removeSession();
-
-     // redirect to the login page with a flag for the logout
-     $this->doRedirect();
-
-   }
-
-   // otherwise just reset the clock
-   else {
-
-     // all is well; reset the timer
-     $_SESSION['time'] = $this->now;
-
-   }
-
- }
-
- public function doRedirect() {
-
-   header("Location: {$this->redir}");
-   exit;
-
- }
-
- public function removeSession() {
-
-   // empty the session super global array
-   $_SESSION = array();
-
-   // wipe the session cookie
-   if (!empty($_COOKIE[session_name()])) {
-       setcookie(session_name(), '', time() - 60*60*24, '/');
-   }
-
-   // end the session
-   session_destroy();
-
- }
+	// end the session
+   	session_destroy();
+}
 
 }
 

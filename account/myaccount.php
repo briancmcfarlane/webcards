@@ -5,7 +5,9 @@
 require 'classes/ValidateSession.php';
 require 'classes/AccountImporter.php';
 $checkSession = new ValidateSession();
+$checkSession->checkAuthorization();
 $accountImporter = new AccountImporter('access.xml','webcards.xml');
+
 
 $this->title = <<<_pageTitle_
         WebCards: {$accountImporter->accountDetails->name}'s Account
@@ -44,6 +46,5 @@ _pageContent_;
 $this->localNav = <<<_localNav_
         
 _localNav_;
+
 ?>
-
-
