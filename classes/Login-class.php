@@ -145,7 +145,7 @@ class Login {
 	// allowIn function is also used by the registration page to automatically log
 	// the user in once they create an account.     
    if (isset($_SESSION["signup"])) {
-	   $this->redir  = '/webcards/demo';
+	   $this->redir  = '/webcards/build';
 	   header("Location: $this->redir");
 	   exit;
 	}

@@ -34,7 +34,7 @@ $this->content = <<<_pageContent_
             
             {$accountImporter->webcardTable}
                 
-            <p><a href="demo">Create Webcards</a></p>
+            <p><a href="build">Create Webcards</a></p>
 
 _pageContent_;
 

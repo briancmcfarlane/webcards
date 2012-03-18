@@ -66,8 +66,8 @@
         
         public function linkJS(){
             echo "<script type=\"text/javascript\"src=\"js/webcards-global.js\"/></script>";
-            if ($this->filePath[0] == 'demo'){
-                echo "<script type=\"text/javascript\" src=\"js/webcards-demo.js\"></script>";
+            if ($this->filePath[0] == 'build'){
+                echo "<script type=\"text/javascript\" src=\"js/webcards-build.js\"></script>";
             }
         }
 		
