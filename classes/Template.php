@@ -8,7 +8,7 @@
             'home'=>array('Home','.','140'),
             'features'=>array('Features','features','150'),
             'pricing'=>array('Pricing','pricing','160'),
-            'demo'=>array('Demo a WebCard','demo','170'),
+            'build'=>array('Build a WebCard','build','170'),
             'support'=>array('Support','support','190')
         );
            

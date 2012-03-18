@@ -11,8 +11,8 @@ $this->title = <<<_pageTitle_
 _pageTitle_;
 
 $this->content = <<<_pageContent_
-        <h2>Demo a WebCard</h2>
-<p>This demo shows a little of what is possible with WebCards.  Consult our <a href="/webcards/features">features list</a> for the complete picture!</p>
+        <h2>Build a WebCard</h2>
+<p>Consult our <a href="/webcards/features">features list</a> for the complete picture!</p>
 <p><strong>Note:</strong> All fields are required.</p>
 <form method="post" action="/webcards/demo" id="demoForm">
 <ul>
