@@ -33,7 +33,7 @@ class AccountImporter{
         
         if ($_POST['manageCards'] === 'y'){
             
-            if ($_POST['btn'] === 'Delete Card(s)'){
+            if ($_POST['btn'] === 'Delete Card'){
                 
                 $this->deleteCards();
             }
@@ -169,7 +169,6 @@ class AccountImporter{
         $acctToAlter->addChild('email', $formattedEmail);
         $acctToAlter->addChild('password', $encodedPwd);
         $acctToAlter->addChild('name', $_POST['name']);
-        $acctToAlter->addChild('ccnumber', $_POST['ccnumber']);
         $acctToAlter->addChild('plan',$_POST['plan']);
         
         $xmlData = xmlPrettyPrint($this->accountData->asXML());
@@ -189,7 +188,7 @@ class AccountImporter{
 
         if ((string)$this->webcardData->webcard[$x]->user === $_SESSION['email']) {
             $form .= '<tr>';
-            $form .= '<td><input type="checkbox" name="card[ ]" value="'.$x.'"></td>';
+            $form .= '<td><input type="radio" name="card" value="'.$x.'"></td>';
             $form .= '<td>' . $this->webcardData->webcard[$x]->sender . '</td>';
             $form .= '<td>' . $this->webcardData->webcard[$x]->recipient . '</td>';
             $form .= '<td>' . $this->webcardData->webcard[$x]->txtstyle . '</td>';
@@ -270,18 +269,17 @@ class AccountImporter{
 
     }
 
-    public function deleteCards(){
+    private function deleteCards(){
         
         $allCards = count($this->webcardData->webcard);
         
          for ($x=0; $x<$allCards; $x++){
              
-            if ((string)$this->webcardData->webcard[$x]->user === $_SESSION['email']){
+            if ((string)$this->webcardData->webcard[$x]->user === $_SESSION['email'] && $_POST['card'] == $x){
                 unset($this->webcardData->webcard[$x]);
-                $x--;
             }
             
-        }
+         }
         
         $xmlData = xmlPrettyPrint($this->webcardData->asXML());
         file_put_contents($this->webcardDataFilePath, $xmlData);
