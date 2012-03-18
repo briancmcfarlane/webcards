@@ -16,10 +16,27 @@ class AccountImporter{
  
         $this->accountDetails = $this->loadUserAccount();
         
-        $this->webcardTable = $this->loadUsersCards();
+        $this->webcardForm = $this->loadUsersCards();
         
-        if ($_POST['submitted'] === 'y'){
-            $this->alterAccountDetails();
+        if ($_POST['alterAccount'] === 'y'){
+            
+           $this->theErrors = $this->checkForErrors();
+           
+           if ($this->theErrors) {
+		 $this->outputErrors();
+	   }
+           else {
+		 $this->alterAccountDetails();
+	   }
+
+        }
+        
+        if ($_POST['manageCards'] === 'y'){
+            
+            if ($_POST['btn'] === 'Delete Card(s)'){
+                
+                $this->deleteCards();
+            }
         }
         
     }
@@ -36,6 +53,105 @@ class AccountImporter{
         return $acctToLoad;
     }
     
+    private function checkForErrors(){
+
+    // this will hold our error messages
+    $errors = array();
+
+    // this block of code deals with the email address
+    // if it is not set, output the proper error
+    if (empty($_POST['email'])) {
+        $errors[] = 'Please enter an email address.';
+    }
+
+    // if it is set, remove empty spaces on the ends
+     // and test for proper format
+     else {
+
+        $_POST['email'] = trim($_POST['email']);
+        if (!preg_match('/^[^@\s]+@([-a-z0-9]+\.)+[a-z]{2,}$/i', $_POST['email'])) {
+            $errors[] = 'Please provide a valid e-mail address.';
+        }
+
+        // if the format checks out then see if the account already exists
+        // if it already exists, output the proper error
+     else {
+
+        $acctExists = false;
+      
+        $_POST['email'] = strtolower($_POST['email']);
+
+        for ($x=1, $allAccts=count($this->accountData->acct); $x<$allAccts; $x++) {
+
+            if ((string)$this->accountData->acct[$x]->email === $_POST['email'] && (string)$this->accountData->acct[$x]->email != $this->accountDetails->email ) {
+            $acctExists = true;
+            }
+
+        }
+
+        if ($acctExists) {
+
+        $errors[] = 'An account has already been established for that address.
+                     Enter another email address.';
+
+        }
+
+    }
+
+    // this block of code deals with the password
+    // if the user neglected to enter either the password or confirmation
+    // then trigger an error
+    if (empty($_POST['password']) || empty($_POST['confirmpassword'])) {
+      $errors[] = 'Please provide a password and then re-confirm the password.';
+    }
+
+    // if they were entered and do not match, output an error
+    elseif ($_POST['password'] !== $_POST['confirmpassword']) {
+      $errors[] = 'Passwords do not match.';
+    }
+
+    // clean up empty spaces and check for proper formatting, outputting error messages
+    else {
+
+      $_POST['password'] = trim($_POST['password']);
+      $numCharacters = strlen($_POST['password']);
+      if ($numCharacters < 7) {
+         $errors[] = 'Password does not meet length requirements.';
+      }
+      if (!preg_match('/[a-z]/', $_POST['password']) ||
+          !preg_match('/[A-Z]/', $_POST['password']) ||
+          !preg_match('/[0-9]/', $_POST['password'])) {
+            $errors[] = 'Password is not formatted properly.';
+      }
+
+    }
+    
+    if (empty($_POST['name'])){
+        $errors[] = 'Please enter your name.';
+    }
+    
+    if (empty($_POST['ccnumber'])){
+        $errors[] = 'Please enter your credit card number.';
+    }
+    
+    if (empty($_POST['plan'])){
+        $errors[] = 'Please select a subscription plan.';
+    }
+    
+   }
+
+  return $errors;
+
+ }
+ 
+    public function outputErrors() {
+
+   $this->error_msg = '<p><strong>Please correct the following issues
+                       and re-submit the form.</strong></p>';
+   $this->error_msg .= '<ul><li>' . implode('</li><li>',$this->theErrors) . '</li></ul>';
+
+ }
+ 
     private function alterAccountDetails(){
         
          $allAccounts = count($this->accountData->acct);
@@ -72,26 +188,57 @@ class AccountImporter{
         
         $allCards = count($this->webcardData->webcard);
         
-        $table = '<table border="1"><thead><tr><th>Sender</th><th>Recipient</th><th>Text Style</th><th>Border</th><th>Message</th></tr></thead><tbody>';
+        $form = '<form method="post" action=""><table border="1"><thead><tr><th></th><th>Sender</th><th>Recipient</th><th>Text Style</th><th>Border</th><th>Message</th></tr></thead><tbody>';
 
-        for ($x=1; $x<$allCards; $x++) {
+        for ($x=0; $x<$allCards; $x++) {
 
         if ((string)$this->webcardData->webcard[$x]->user === $_SESSION['email']) {
-            $table .= '<tr>';
-            $table .= '<td>' . $this->webcardData->webcard[$x]->sender . '</td>';
-            $table .= '<td>' . $this->webcardData->webcard[$x]->recipient . '</td>';
-            $table .= '<td>' . $this->webcardData->webcard[$x]->txtstyle . '</td>';
-            $table .= '<td>' . $this->webcardData->webcard[$x]->bordr . '</td>';
-            $table .= '<td>' . $this->webcardData->webcard[$x]->message . '</td>';
-            $table .= '</tr>';
+            $form .= '<tr>';
+            $form .= '<td><input type="checkbox" name="card[ ]" value="'.$x.'"></td>';
+            $form .= '<td>' . $this->webcardData->webcard[$x]->sender . '</td>';
+            $form .= '<td>' . $this->webcardData->webcard[$x]->recipient . '</td>';
+            $form .= '<td>' . $this->webcardData->webcard[$x]->txtstyle . '</td>';
+            $form .= '<td>' . $this->loadBorderGraphic($this->webcardData->webcard[$x]->bordr) . '</td>';
+            $form .= '<td>' . $this->webcardData->webcard[$x]->message . '</td>';
+            $form .= '</tr>';
         }
 
         }
         
-        $table .= '</tbody></table>';
+        $form .= '</tbody></table><br /><input type="hidden" name="manageCards" value="y" /><input type="submit" name="btn" value="Delete Card(s)"/>&nbsp;<input type="submit" name="btn" value="Send Card"/>&nbsp;<input type="submit" name="btn" value="Edit Card"/></form>';
         
-        return $table;
+        return $form;
     
+    }
+    
+    private function loadBorderGraphic($bordrAlt){
+        
+        switch ($bordrAlt){
+            case "Dentist Appt. A Border Image": 
+                return "<img src=\"images/theme-dentist-a.png\" alt=\"Dentist Appt. A Border Image\"/>";
+                break;
+            case "Dentist Appt. B Border Image":
+                return "<img src=\"images/theme-dentist-b.png\" alt=\"Dentist Appt. B Border Image\"/>";
+                break;
+            case "Open House A Border Image":
+                return "<img src=\"images/theme-house-a.png\" alt=\"Open House A Border Image\"/>";
+                break;
+            case "Open House B Border Image":
+                return "<img src=\"images/theme-house-b.png\" alt=\"Open House B Border Image\"/>";
+                break;
+            case "Vet Appt. A Border Image";
+                return "<img src=\"images/theme-pet-a.png\" alt=\"Vet Appt. A Border Image\"/>";
+                break;
+            case "Vet Appt. B Border Image";
+                return "<img src=\"images/theme-pet-b.png\" alt=\"Vet Appt. B Border Image\"/>";
+                break;
+            case "Valentine's Day A Border Image";
+                return "<img src=\"images/theme-vd-a.png\" alt=\"Valentine's Day A Border Image\"/>";
+                break;
+            case "Valentine's Day B Border Image";
+                return "<img src=\"images/theme-vd-b.png\" alt=\"Valentine's Day B Border Image\"/>";
+                break;
+        }
     }
     
     private function convertWebCardsToNewUser(){
@@ -99,18 +246,18 @@ class AccountImporter{
         $formattedEmail = strtolower($_POST['email']);
         $allCards = count($this->webcardData->webcard);
         
-         for ($x=1; $x<$allCards; $x++){
+         for ($x=0; $x<$allCards; $x++){
              
             if ((string)$this->webcardData->webcard[$x]->user === $_SESSION['email']){
                 unset($this->webcardData->webcard[$x]->user);
                 $this->webcardData->webcard[$x]->addChild('user', $formattedEmail);
             }
             
+        }
+        
         $xmlData = xmlPrettyPrint($this->webcardData->asXML());
 
         file_put_contents($this->webcardDataFilePath, $xmlData);
-            
-        }
      
         
         $this->setNewSessionVars();
@@ -128,7 +275,25 @@ class AccountImporter{
 
     }
 
-
+    public function deleteCards(){
+        
+        $allCards = count($this->webcardData->webcard);
+        
+         for ($x=0; $x<$allCards; $x++){
+             
+            if ((string)$this->webcardData->webcard[$x]->user === $_SESSION['email']){
+                unset($this->webcardData->webcard[$x]);
+                $x--;
+            }
+            
+        }
+        
+        $xmlData = xmlPrettyPrint($this->webcardData->asXML());
+        file_put_contents($this->webcardDataFilePath, $xmlData);
+        
+        $this->webcardForm = $this->loadUsersCards();
+    
+    }
 }
 
 ?>

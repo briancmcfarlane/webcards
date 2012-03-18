@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
 require 'classes/Registration.php';
+=======
+require 'classes/Registration-class.php';
+>>>>>>> d3409ff9d12843e5663e544bc55e01d49dc05173
 $reg = new Registration('access.xml');
  
 $this->title = <<<_pageTitle_
@@ -19,9 +23,9 @@ $this->content = <<<_pageContent_
             <label for="name">Name: </label><input type="text" size="20" name="name" id="name" value="{$_POST['name']}" /><br/>
             <label for="ccnumber">Credit Card Number: </label><input type="text" size="20" name="ccnumber" id="ccnumber" value="{$_POST['ccnumber']}" />
             <p>Choose your plan: <br/>
-                <label for="bronze">Bronze Plan </label><input type="radio" name="plan" id="bronze" value="bronze" /> <br/>
-                <label for="silver">Silver Plan </label><input type="radio" name="plan" value="silver" /> <br/>
-                <label for="gold">Gold Plan </label><input type="radio" name="plan" value="gold" /> <br/>
+                <label for="bronze">Bronze Plan </label><input type="radio" name="plan" id="bronze" value="Bronze" /> <br/>
+                <label for="silver">Silver Plan </label><input type="radio" name="plan" value="Silver" /> <br/>
+                <label for="gold">Gold Plan </label><input type="radio" name="plan" value="Gold" /> <br/>
             </p>
             <input type="hidden" name="submitted" value="y" />
                                  
