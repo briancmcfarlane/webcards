@@ -2,19 +2,19 @@
 require 'classes/ValidateSession-class.php';
 $checkSession = new ValidateSession();
 
-require 'classes/Demo-class.php';
-$demo = new Demo('webcards.xml');
+require 'classes/Build-class.php';
+$build = new Build('webcards.xml');
 
 
 $this->title = <<<_pageTitle_
-        WebCards: Demo a WebCard
+        WebCards: Build a WebCard
 _pageTitle_;
 
 $this->content = <<<_pageContent_
         <h2>Build a WebCard</h2>
 <p>Consult our <a href="/webcards/features">features list</a> for the complete picture!</p>
 <p><strong>Note:</strong> All fields are required.</p>
-<form method="post" action="/webcards/demo" id="demoForm">
+<form method="post" action="/webcards/build" id="buildForm">
 <ul>
 	<li><label for="txt">Choose a Text Style:</label>
 	    <div><input type="radio" name="txtstyle" id="txt" value="sans" tabindex="10" /> Sans-Serif (e.g., Verdana)<br />
@@ -39,12 +39,12 @@ $this->content = <<<_pageContent_
     	<textarea name="message" id="msg" cols="30" rows="4" tabindex="130"></textarea></li>
 	<li><label for="sender">Your Name:</label> <input type="text" name="sender" id="sender" tabindex="140" /></li>
     <li>
-		<label>&nbsp;</label> <input type="button" id="demo" value="Demo WebCard" tabindex="150" />
+		<label>&nbsp;</label> <input type="button" id="build" value="Build WebCard" tabindex="150" />
 		<input type="button" id="signup" name="signup" value="Save &amp; Send" tabindex="160"/>
 	</li>
 </ul>
 </form>
-<p class="hide"><strong>Printed from:</strong> http://www.webcards.com/demo</p>
+<p class="hide"><strong>Printed from:</strong> http://www.webcards.com/build</p>
 _pageContent_;
 
 $this->localNav = <<<_localNav_

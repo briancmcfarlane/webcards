@@ -2,7 +2,7 @@
 
 error_reporting(E_ALL ^ E_NOTICE);
 
-class Demo {
+class Build {
 
  // property: path to confirmation page
  public $redir = '';
