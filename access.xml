@@ -57,4 +57,11 @@
         <plan>bronze</plan>
         <isAdmin>false</isAdmin>
     </acct>
+    <acct>
+        <email>test@test.com</email>
+        <password>adedd577087031b99cf6592dd2559635170c9db6</password>
+        <name>Test McTesterson</name>
+        <plan>Platinum</plan>
+        <isAdmin>false</isAdmin>
+    </acct>
 </root>

@@ -35,7 +35,12 @@ class AccountImporter{
             
             if ($_POST['btn'] === 'Delete Card'){
                 
-                $this->deleteCards();
+                $this->deleteCard();
+            }
+            
+            if ($_POST['btn'] === 'Send Card'){
+               
+                $this->sendCard();
             }
         }
         
@@ -269,7 +274,7 @@ class AccountImporter{
 
     }
 
-    private function deleteCards(){
+    private function deleteCard(){
         
         $allCards = count($this->webcardData->webcard);
         
@@ -286,6 +291,11 @@ class AccountImporter{
         
         $this->webcardForm = $this->loadUsersCards();
     
+    }
+    
+    private function sendCard(){
+        
+        
     }
 }
 

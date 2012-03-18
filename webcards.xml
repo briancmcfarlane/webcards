@@ -80,4 +80,12 @@
         <message>This is a test message.</message>
         <sender>Test User</sender>
     </webcard>
+    <webcard>
+        <user>test@test.com</user>
+        <txtstyle>serif</txtstyle>
+        <bordr>Open House A Border Image</bordr>
+        <recipient>Chad</recipient>
+        <message>Happy new house!</message>
+        <sender>Scott</sender>
+    </webcard>
 </root>
