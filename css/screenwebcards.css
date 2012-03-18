@@ -32,6 +32,7 @@ text-shadow: .1em 0 0 #eee;
 }
 h2, h3 {
 font: 130%/1.4 verdana,geneva,lucida,arial,sans-serif;
+margin: 1em 0;
 }
 #tagline {
 font-size: 80%;
@@ -161,7 +162,7 @@ list-style: circle;
 #content form ul {
 margin: 3em 0;
 }
-#recip, #sender, textarea, #support-form input[type="text"], #name, #password, #confirmpassword, #emailAddr, #ccnumber {
+#recip, #sender, textarea, #support-form input[type="text"], #name, #password, #confirmpassword, #emailAddr, #ccnumber, #emailadr, #passwd {
 width: 18em;
 border: 1px solid #999;
 }
