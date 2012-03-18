@@ -2,36 +2,44 @@
 
 class ErrorCheck {
 
-public	$err = array();
+public	$errs = '';
 
 public function containsData($field, $errMsg) {
 	if  (empty($field)){
-    	$this->err[] = 'Please enter ' . $errMsg . '.';
+    	$msg = 'Please enter ' . $errMsg . '.';
+		$this->errs = 'y';
+		return $msg;
+	}
+	else {
+	    if (preg_match('[\*\$\+\=\\\/]', $field)) {
+	    	$msg = 'Please remove any *, $, +, /, \\.';
+			$this->errs = 'y';
+			return $msg;
+	    }
 	}
 }
 
 public function validEmail($email) {
 	if  (empty($email)){
-    	$this->err[] = 'Please enter your email address.';
+    	$msg = 'Please enter your email.';
+		$this->errs = 'y';
+		return $msg;
 	}
 	else {
 		$email = trim($email);
 	    if (!preg_match('/^[^@\s]+@([-a-z0-9]+\.)+[a-z]{2,}$/i', $email)) {
-	    	$this->err[] = 'Please provide a valid e-mail address.';
+	    	$msg = 'Please enter a valid email.';
+			$this->errs = 'y';
+			return $msg;
 	    }
-		else {
-			$email = strtolower($email);	
-		}
 	}
-	return $email;
 }
 
 public function outputErrors() {
-	if ($this->err)
+	if ($this->errs)
 	{
-		$error_msg = '<p><strong>Please correct the following issues
-    		                   and re-submit the form.</strong></p>';
-		$error_msg .= '<ul><li>' . implode('</li><li>',$this->err) . '</li></ul>';
+		$error_msg = '<div><p class="error"><strong>Please correct the following issues
+    		                   and re-submit the form.</strong></p></div>';
 		return $error_msg;
 	}
 }

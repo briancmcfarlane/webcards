@@ -249,6 +249,7 @@ border: none;
 font-size: 70%;
 color: red;
 vertical-align: top;
+width: 17em;
 }
 .overLimit {
 background: #f00;

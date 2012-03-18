@@ -7,38 +7,36 @@ require 'ErrorCheck.php';
    
 class ContactSupport {
  
- // property: path to confirmation page
- public $redir = '/webcards/contact/thankyou';
+// property: path to confirmation page
+public $redir = '/webcards/contact/thankyou';
 
- // method called when object instantiated
- // pass it the path to the XML file
- public function __construct($dataFile) {
+// method called when object instantiated
+// pass it the path to the XML file
+public function __construct($dataFile) {
 
-   // bring in the global function for pretty-printing XML
-   include 'includes/xml-formatter.php';
+	// bring in the global function for pretty-printing XML
+	include 'includes/xml-formatter.php';
 
-   // check to see if the hidden variable is set
-   if ($_POST['submitted'] === 'y') {
+	// check to see if the hidden variable is set
+	if ($_POST['submitted'] === 'y') {
+	
+	// property: SimpleXML object
+	$this->data = simplexml_load_file($dataFile);
 
-     // property: SimpleXML object
-     $this->data = simplexml_load_file($dataFile);
-
-     // property: path to XML file
-     $this->dataFilePath = $dataFile;
+	// property: path to XML file
+	$this->dataFilePath = $dataFile;
 
 	$this->error_msg = $this->checkForErrors();
 
-     // if errors were found output them
-     // otherwise establish an account
-     if (!$this->error_msg) {
-		 $this->createMsg();
+	// if errors were found output them
+	// otherwise establish an account
+    if (!$this->error_msg) {
+		$this->createMsg();
 		 
-		 // and redirect the user to the confirmation page
-		 header("Location: $this->redir");
+		// and redirect the user to the confirmation page
+		header("Location: $this->redir");
 	 }
-
    }
-
  }
 
 // method: construct an array of error messages and return that array
@@ -46,13 +44,11 @@ public function checkForErrors() {
 
 	$check = new ErrorCheck();
    
-	$check->containsData($_POST['first_name'], 'your first name');
-	$check->containsData($_POST['last_name'], 'your last name');
-	
-	$_POST['email'] = $check->validEmail($_POST['email'], 'your email');
-
-	$check->containsData($_POST['subject'], 'a subject for your message');       
-	$check->containsData($_POST['message'], 'your message');   
+	$_POST['fname_error'] = $check->containsData($_POST['first_name'], 'your first name');
+	$_POST['lname_error'] = $check->containsData($_POST['last_name'], 'your last name');
+	$_POST['email_error'] = $check->validEmail($_POST['email']);
+	$_POST['subj_error'] = $check->containsData($_POST['subject'], 'the subject');       
+	$_POST['msg_error'] = $check->containsData($_POST['message'], 'a message');   
 	
 	return $check->outputErrors(); 
 }
