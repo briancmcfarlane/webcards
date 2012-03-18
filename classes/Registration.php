@@ -122,10 +122,6 @@ class Registration {
         $errors[] = 'Please enter your name.';
     }
     
-    if (empty($_POST['ccnumber'])){
-        $errors[] = 'Please enter your credit card number.';
-    }
-    
     if (empty($_POST['plan'])){
         $errors[] = 'Please select a subscription plan.';
     }
@@ -159,7 +155,6 @@ class Registration {
    $newAcct->addChild('email', $formattedEmail);
    $newAcct->addChild('password', $encodedPwd);
    $newAcct->addChild('name', $_POST['name']);
-   $newAcct->addChild('ccnumber', $_POST['ccnumber']);
    $newAcct->addChild('plan', $_POST['plan']);
    $newAcct->addChild('isAdmin', 'false');
 
