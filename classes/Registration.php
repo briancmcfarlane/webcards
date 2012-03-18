@@ -2,7 +2,7 @@
 
 // suppress notices, since some variables will not be set
 error_reporting(E_ALL ^ E_NOTICE);
-require 'Login-class.php';
+require 'Login.php';
 
 class Registration {
 

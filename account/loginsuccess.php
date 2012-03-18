@@ -2,7 +2,7 @@
 
 error_reporting(E_ALL ^ E_NOTICE);
 
-require 'classes/ValidateSession-class.php';
+require 'classes/ValidateSession.php';
 $checkSession = new ValidateSession();
  
 $this->title = <<<_pageTitle_

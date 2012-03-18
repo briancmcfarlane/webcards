@@ -1,8 +1,8 @@
 <?php
-require 'classes/ValidateSession-class.php';
+require 'classes/ValidateSession.php';
 $checkSession = new ValidateSession();
 
-require 'classes/Build-class.php';
+require 'classes/Build.php';
 $build = new Build('webcards.xml');
 
 
