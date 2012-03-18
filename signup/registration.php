@@ -1,5 +1,5 @@
 <?php
-require 'classes/registration-class.php';
+require 'classes/Registration-class.php';
 $reg = new Registration('access.xml');
  
 $this->title = <<<_pageTitle_
