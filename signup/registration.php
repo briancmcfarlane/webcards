@@ -20,7 +20,7 @@ $this->content = <<<_pageContent_
             <h3>Choose Your Plan:</h3>
                 <label for="copper">Copper Plan</label><input type="radio" name="plan" value="Copper" id="copper"/><br />
                 <label for="silver">Silver Plan</label><input type="radio" name="plan" value="Silver" id="silver"/><br />
-                <label for="gold">Gold Plan</label><input type="radio" name="plan" value="Gold" id="gold"/><br />
+                <label for="gold">Gold Plan</label><input checked="checked" type="radio" name="plan" value="Gold" id="gold"/><br />
                 <label for="platinum">Platinum Plan</label><input type="radio" name="plan" value="Platinum" id="platinum"/><br />
             <input type="hidden" name="submitted" value="y" />
             <br />                     
