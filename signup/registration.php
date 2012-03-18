@@ -1,9 +1,4 @@
 <?php
-<<<<<<< HEAD
-require 'classes/Registration.php';
-=======
-require 'classes/Registration-class.php';
->>>>>>> d3409ff9d12843e5663e544bc55e01d49dc05173
 $reg = new Registration('access.xml');
  
 $this->title = <<<_pageTitle_
