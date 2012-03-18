@@ -97,6 +97,7 @@ padding: .5em;
 position: absolute;
 top: 2em;
 right: 1em;
+font-size: 90%;
 }
 
 #tnav, #tnav li {
@@ -158,7 +159,7 @@ list-style: circle;
 #content form ul {
 margin: 3em 0;
 }
-#recip, #sender, textarea, #support-form input[type="text"], #name, #password, #confirmpassword, #emailAddr, #ccnumber, #emailadr, #passwd {
+#recip, #sender, textarea, #name, #password, #confirmpassword, #emailAddr, #ccnumber, #emailadr, #passwd, #first_name, #last_name, #email, #subject, #message {
 width: 18em;
 border: 1px solid #999;
 }
@@ -242,6 +243,12 @@ list-style: none;
 .error, #errorMessage {
 color: #f00;
 font-weight: bold;
+}
+.err_msg {
+border: none;
+font-size: 70%;
+color: red;
+vertical-align: top;
 }
 .overLimit {
 background: #f00;

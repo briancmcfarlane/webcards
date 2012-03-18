@@ -17,13 +17,23 @@ $this->content = <<<_pageContent_
 
 	{$req->error_msg}
 	<form method="post" action="/webcards/support"><div id="support-form">
-			<label for="first_name">First Name: </label><input type="text" size="20" name="first_name" id="first_name" value="{$_POST['first_name']}" /><br />
-			<label for="last_name">Last Name: </label><input type="text" size="20" name="last_name" id="last_name" value="{$_POST['last_name']}" /><br />
-            <label for="email">Email Address: </label><input type="text" size="20" name="email" id="email" value="{$_POST['email']}"/><br/>
-			<label for="subject">Subject: </label><input type="text" size="20" name="subject" id="subject" value="{$_POST['subject']}" /><br />
-			<label for="message">Message: </label><textarea name="message" id="message">{$_POST['message']}</textarea><br /><br />
+			<label for="first_name">First Name: </label><input type="text" size="20" name="first_name" id="first_name" value="{$_POST['first_name']}" />
+				<input type="text" size="20" name="fname_error" id="fname_error" class="err_msg" readonly="readonly" value="{$_POST['fname_error']}" /><br />
+				
+			<label for="last_name">Last Name: </label><input type="text" size="20" name="last_name" id="last_name" value="{$_POST['last_name']}" />
+				<input type="text" size="20" name="lname_error" id="lname_error" class="err_msg" readonly="readonly" value="{$_POST['lname_error']}" /><br />
+				
+            <label for="email">Email Address: </label><input type="text" size="20" name="email" id="email" value="{$_POST['email']}"/>
+				<input type="text" size="20" name="email_error" id="email_error" class="err_msg" readonly="readonly" value="{$_POST['email_error']}" /><br />
+				
+			<label for="subject">Subject: </label><input type="text" size="20" name="subject" id="subject" value="{$_POST['subject']}" />
+				<input type="text" size="20" name="subj_error" id="subj_error" class="err_msg" readonly="readonly" value="{$_POST['subj_error']}" /><br />
+				
+			<label for="message">Message: </label><textarea name="message" id="message">{$_POST['message']}</textarea>
+				<input type="text" size="20" name="msg_error" id="msg_error" class="err_msg" readonly="readonly" value="{$_POST['msg_error']}" /><br />
+				
 		<input type="hidden" name="submitted" value="y" />
-		<label for="sub">&nbsp;</label><input type="submit" id="sub" value="Send" /><input type="reset" value="Reset Fields"/>
+		<label for="sub">&nbsp;</label><input type="submit" id="sub" value="Send" />
 	</div></form>
 
 _pageContent_;
