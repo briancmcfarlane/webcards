@@ -33,7 +33,7 @@ class AccountImporter{
         
         if ($_POST['manageCards'] === 'y'){
             
-            if ($_POST['btn'] === 'Delete Card(s)'){
+            if ($_POST['btn'] === 'Delete Card'){
                 
                 $this->deleteCards();
             }
@@ -130,10 +130,6 @@ class AccountImporter{
         $errors[] = 'Please enter your name.';
     }
     
-    if (empty($_POST['ccnumber'])){
-        $errors[] = 'Please enter your credit card number.';
-    }
-    
     if (empty($_POST['plan'])){
         $errors[] = 'Please select a subscription plan.';
     }
@@ -168,13 +164,11 @@ class AccountImporter{
         unset($acctToAlter->email);
         unset($acctToAlter->password);
         unset($acctToAlter->name);
-        unset($acctToAlter->ccnumber);
         unset($acctToAlter->plan);
         
         $acctToAlter->addChild('email', $formattedEmail);
         $acctToAlter->addChild('password', $encodedPwd);
         $acctToAlter->addChild('name', $_POST['name']);
-        $acctToAlter->addChild('ccnumber', $_POST['ccnumber']);
         $acctToAlter->addChild('plan',$_POST['plan']);
         
         $xmlData = xmlPrettyPrint($this->accountData->asXML());
@@ -194,7 +188,7 @@ class AccountImporter{
 
         if ((string)$this->webcardData->webcard[$x]->user === $_SESSION['email']) {
             $form .= '<tr>';
-            $form .= '<td><input type="checkbox" name="card[ ]" value="'.$x.'"></td>';
+            $form .= '<td><input type="radio" name="card" value="'.$x.'"></td>';
             $form .= '<td>' . $this->webcardData->webcard[$x]->sender . '</td>';
             $form .= '<td>' . $this->webcardData->webcard[$x]->recipient . '</td>';
             $form .= '<td>' . $this->webcardData->webcard[$x]->txtstyle . '</td>';
@@ -205,7 +199,7 @@ class AccountImporter{
 
         }
         
-        $form .= '</tbody></table><br /><input type="hidden" name="manageCards" value="y" /><input type="submit" name="btn" value="Delete Card(s)"/>&nbsp;<input type="submit" name="btn" value="Send Card"/>&nbsp;<input type="submit" name="btn" value="Edit Card"/></form>';
+        $form .= '</tbody></table><br /><input type="hidden" name="manageCards" value="y" /><input type="submit" name="btn" value="Delete Card"/>&nbsp;<input type="submit" name="btn" value="Send Card"/>&nbsp;<input type="submit" name="btn" value="Edit Card"/></form>';
         
         return $form;
     
@@ -275,18 +269,17 @@ class AccountImporter{
 
     }
 
-    public function deleteCards(){
+    private function deleteCards(){
         
         $allCards = count($this->webcardData->webcard);
         
          for ($x=0; $x<$allCards; $x++){
              
-            if ((string)$this->webcardData->webcard[$x]->user === $_SESSION['email']){
+            if ((string)$this->webcardData->webcard[$x]->user === $_SESSION['email'] && $_POST['card'] == $x){
                 unset($this->webcardData->webcard[$x]);
-                $x--;
             }
             
-        }
+         }
         
         $xmlData = xmlPrettyPrint($this->webcardData->asXML());
         file_put_contents($this->webcardDataFilePath, $xmlData);
