@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
     <acct>
+<<<<<<< HEAD
+=======
+        <email>test@test.com</email>
+        <password>b9ddb3d0f234e75aaaa75137c1c78be3e48c0f09</password>
+        <name>Jill Blevins</name>
+        <plan>bronze</plan>
+    </acct>
+    <acct>
+>>>>>>> master
         <email>jill.blevins@gmail.com</email>
         <password>b9ddb3d0f234e75aaaa75137c1c78be3e48c0f09</password>
         <name>Jill Blevins</name>
@@ -32,36 +41,40 @@
         <email>jblevins@test.com</email>
         <password>61c166d1bd8a3c678feba341a48ae8fa5886a0f7</password>
         <name>Jill Blevins</name>
-        <ccnumber>41111111111111111</ccnumber>
         <plan>silver</plan>
     </acct>
     <acct>
         <email>blevinsj@test.com</email>
         <password>ce0c5bcec2fcb4a6ae8ae16f9a7aaa7516e22d15</password>
         <name>Jill Blevins</name>
-        <ccnumber>41111111111111111</ccnumber>
         <plan>gold</plan>
     </acct>
     <acct>
         <email>sample@test.com</email>
         <password>b102d42c444fc182d8529137e6a22658cbc1da6f</password>
         <name>Jill Blevins</name>
-        <ccnumber>41111111111111111</ccnumber>
         <plan>bronze</plan>
     </acct>
     <acct>
         <email>testuser@test.com</email>
         <password>d33c779bda42548f546e437dcce0157d60152957</password>
         <name>Test User</name>
-        <ccnumber>123456789</ccnumber>
         <plan>bronze</plan>
         <isAdmin>false</isAdmin>
     </acct>
     <acct>
+<<<<<<< HEAD
         <email>test@test.com</email>
         <password>adedd577087031b99cf6592dd2559635170c9db6</password>
         <name>Test McTesterson</name>
         <plan>Platinum</plan>
         <isAdmin>false</isAdmin>
+=======
+        <email>adminuser@admin.com</email>
+        <password>ebe1c4fc01e258e56621f62c07466ff684041b1c</password>
+        <name>Admin User</name>
+        <plan>Gold</plan>
+        <isAdmin>true</isAdmin>
+>>>>>>> master
     </acct>
 </root>

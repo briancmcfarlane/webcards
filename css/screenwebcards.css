@@ -77,10 +77,6 @@ background: #fff;
 border: 2px solid #bbb;
 padding: 20px 1em 3em;
 position: relative;
-voice-family: "\"
-}
-\"";
-voice-family: inherit;
 width: 744px;
 }
 html>body #container {
@@ -201,10 +197,6 @@ right: 10px;
 width: 176px;
 border: 3px double #000;
 padding: 5px;
-voice-family: "\"
-}
-\"";
-voice-family: inherit;
 width: 160px;
 }
 html>body #sidebar {
