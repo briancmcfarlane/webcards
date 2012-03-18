@@ -24,7 +24,7 @@ $this->content = <<<_pageContent_
             <label for="name">Name: </label><input type="text" size="20" name="name" id="name" value="{$accountImporter->accountDetails->name}" /><br/>
             <p>Your current plan : {$accountImporter->accountDetails->plan}</p>
             <h3>Update your plan:</h3>
-            </p>
+            <p>
                 <label for="copper">Copper Plan </label><input type="radio" name="plan" id="copper" value="Copper" /> <br/>
                 <label for="silver">Silver Plan </label><input type="radio" name="plan" id="silver" value="Silver" /> <br/>
                 <label for="gold">Gold Plan </label><input type="radio" name="plan" id="gold" value="Gold" /> <br/>
