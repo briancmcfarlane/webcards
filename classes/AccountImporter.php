@@ -130,10 +130,6 @@ class AccountImporter{
         $errors[] = 'Please enter your name.';
     }
     
-    if (empty($_POST['ccnumber'])){
-        $errors[] = 'Please enter your credit card number.';
-    }
-    
     if (empty($_POST['plan'])){
         $errors[] = 'Please select a subscription plan.';
     }
@@ -168,7 +164,6 @@ class AccountImporter{
         unset($acctToAlter->email);
         unset($acctToAlter->password);
         unset($acctToAlter->name);
-        unset($acctToAlter->ccnumber);
         unset($acctToAlter->plan);
         
         $acctToAlter->addChild('email', $formattedEmail);
@@ -205,7 +200,7 @@ class AccountImporter{
 
         }
         
-        $form .= '</tbody></table><br /><input type="hidden" name="manageCards" value="y" /><input type="submit" name="btn" value="Delete Card(s)"/>&nbsp;<input type="submit" name="btn" value="Send Card"/>&nbsp;<input type="submit" name="btn" value="Edit Card"/></form>';
+        $form .= '</tbody></table><br /><input type="hidden" name="manageCards" value="y" /><input type="submit" name="btn" value="Delete Card"/>&nbsp;<input type="submit" name="btn" value="Send Card"/>&nbsp;<input type="submit" name="btn" value="Edit Card"/></form>';
         
         return $form;
     
