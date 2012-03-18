@@ -275,19 +275,17 @@ class AccountImporter{
 
     }
 
-    private function deleteCards(){
+    public function deleteCards(){
         
         $allCards = count($this->webcardData->webcard);
         
-        $cardsToDelete = $_POST['card'];
-        
-        for ($allCards; $allCards>=0; $allCards--){
-
-            if (array_search($allCards, $cardsToDelete)){
-                unset($this->webcardData->webcard[$allCards]);
-                
+         for ($x=0; $x<$allCards; $x++){
+             
+            if ((string)$this->webcardData->webcard[$x]->user === $_SESSION['email']){
+                unset($this->webcardData->webcard[$x]);
+                $x--;
             }
-
+            
         }
         
         $xmlData = xmlPrettyPrint($this->webcardData->asXML());
