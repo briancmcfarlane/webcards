@@ -23,6 +23,7 @@ $this->content = <<<_pageContent_
             <label for="password">Password: </label><input type="password" size="20" name="password" id="password" /><br/>
             <label for="confirmpassword">Confirm Password: </label><input type="password" size="20" name="confirmpassword" id="confirmpassword" /><br/>
             <label for="name">Name: </label><input type="text" size="20" name="name" id="name" value="{$accountImporter->accountDetails->name}" /><br/>
+
             <p>Your current plan: <strong>{$accountImporter->accountDetails->plan}</strong></p>
             <h3>Update your plan: </h3>
                 <label for="copper">Copper Plan </label><input type="radio" name="plan" id="copper" value="Copper" /><br />
