@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
     <acct>
-        <email>test@test.com</email>
-        <password>b9ddb3d0f234e75aaaa75137c1c78be3e48c0f09</password>
-        <name>Jill Blevins</name>
-        <ccnumber>41111111111111111</ccnumber>
-        <plan>bronze</plan>
-    </acct>
-    <acct>
         <email>jill.blevins@gmail.com</email>
         <password>b9ddb3d0f234e75aaaa75137c1c78be3e48c0f09</password>
         <name>Jill Blevins</name>
