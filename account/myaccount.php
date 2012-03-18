@@ -23,8 +23,7 @@ $this->content = <<<_pageContent_
             <label for="password">Password: </label><input type="password" size="20" name="password" id="password" /><br/>
             <label for="confirmpassword">Confirm Password: </label><input type="password" size="20" name="confirmpassword" id="confirmpassword" /><br/>
             <label for="name">Name: </label><input type="text" size="20" name="name" id="name" value="{$accountImporter->accountDetails->name}" /><br/>
-            <label for="ccnumber">Credit Card Number: </label><input type="text" size="20" name="ccnumber" id="ccnumber" value="{$accountImporter->accountDetails->ccnumber}" />
-            <p>Your current plan : {$accountImporter->accountDetails->plan}</p>
+            <p>Your current plan: <strong>{$accountImporter->accountDetails->plan}</strong></p>
             <p>Update your plan: <br/>
                 <label for="bronze">Bronze Plan </label><input type="radio" name="plan" id="bronze" value="Bronze" /> <br/>
                 <label for="silver">Silver Plan </label><input type="radio" name="plan" id="silver" value="Silver" /> <br/>
@@ -32,10 +31,10 @@ $this->content = <<<_pageContent_
             </p>
             <input type="hidden" name="alterAccount" value="y" />
                                  
-            <input type="submit" value="Save Changes"/>
+            <label>&nbsp;</label><input type="submit" value="Save Changes"/>
         </div></form>
             <div class="clr"></div>
-            <h2>Your Webcards</h2>
+            <h3>Your Webcards</h3>
             
             {$accountImporter->webcardForm}
                 
