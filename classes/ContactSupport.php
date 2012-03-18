@@ -3,7 +3,7 @@
 // suppress notices, since some variables will not be set
 error_reporting(E_ALL ^ E_NOTICE);
 
-require 'ErrorCheck-class.php';
+require '.php';
    
 class ContactSupport {
  
