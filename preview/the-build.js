@@ -1,19 +1,21 @@
-var demo_page = {
+var build_page = {
 
   loadValues : function() {
-    var theFont = demo_page.findCookie('font');
-    var theBorder = demo_page.findCookie('border');
+    var theFont = build_page.findCookie('font');
+    var theBorder = build_page.findCookie('border');
     switch (theBorder) {
-      case 'Flower 1 Border Image': theBorder = 'flower1'; break;
-      case 'Flower 2 Border Image': theBorder = 'flower2'; break;
-      case 'Birthday Cake 1 Border Image': theBorder = 'cake1'; break;
-      case 'Birthday Cake 2 Border Image': theBorder = 'cake2'; break;
-      case 'Happy Birthday Text 1 Border Image': theBorder = 'text1'; break;
-      case 'Happy Birthday Text 2 Border Image': theBorder = 'text2';
+      case "Dentist Appt. A Border Image" : theBorder = 'dentistA'; break;
+      case "Dentist Appt. B Border Image" : theBorder = 'dentistB'; break;
+      case "Open House A Border Image" : theBorder = 'houseA'; break;
+      case "Open House B Border Image" : theBorder = 'houseB'; break;
+      case "Vet Appt. A Border Image" : theBorder = 'vetA'; break;
+      case "Vet Appt. B Border Image" : theBorder = 'vetB'; break;
+      case "Valentine's Day A Border Image" : theBorder = 'vdA'; break;
+      case "Valentine's Day B Border Image" : theBorder = 'vdB'; break;
     }
-    var theRecipient = demo_page.findCookie('recipient');
-    var theMessage = demo_page.findCookie('message');
-    var theSender = demo_page.findCookie('sender');
+    var theRecipient = build_page.findCookie('recipient');
+    var theMessage = build_page.findCookie('message');
+    var theSender = build_page.findCookie('sender');
     var theBody = document.getElementsByTagName('body')[0];
     theBody.className = theFont + ' ' + theBorder;
     var toPara = document.createElement('p');
@@ -66,4 +68,4 @@ var demo_page = {
 }
 
 // initializing functionality
-demo_page.addEvent(window, 'load', demo_page.loadValues);
+build_page.addEvent(window, 'load', build_page.loadValues);

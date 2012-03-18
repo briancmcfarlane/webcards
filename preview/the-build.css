@@ -1,10 +1,12 @@
-body {font-size: 90%; line-height: 1.4; margin-top: 80px; padding: 0;}
+body {font-size: 90%; line-height: 1.4; margin-top: 100px; padding: 0;}
 .sans {font-family: verdana,geneva,lucida,arial,sans-serif;}
 .serif {font-family: georgia,serif;}
 .fun {font-family: "comic sans ms",fantasy;}
-.flower1 {background: url(../images/flower1.jpg) top left repeat-x;}
-.flower2 {background: url(../images/flower2.jpg) top left repeat-x;}
-.cake1 {background: url(../images/cake1.jpg) top left repeat-x;}
-.cake2 {background: url(../images/cake2.jpg) top left repeat-x;}
-.text1 {background: url(../images/text1.jpg) top left repeat-x;}
-.text2 {background: url(../images/text2.jpg) top left repeat-x;}
+.dentistA {background: url(../images/theme-dentist-a.png) top left repeat-x;}
+.dentistB {background: url(../images/theme-dentist-b.png) top left repeat-x;}
+.houseA {background: url(../images/theme-house-a.png) top left repeat-x;}
+.houseB {background: url(../images/theme-house.b.png) top left repeat-x;}
+.vetA {background: url(../images/theme-pet-a.png) top left repeat-x;}
+.vetB {background: url(../images/theme-pet-b.png) top left repeat-x;}
+.vdA {background: url(../images/theme-vd-a.png) top left repeat-x;}
+.vdB {background: url(../images/theme-vd-b.png) top left repeat-x;}
