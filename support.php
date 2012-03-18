@@ -1,10 +1,10 @@
 <?php
 error_reporting(E_ALL ^ E_NOTICE);
 
-require 'classes/ValidateSession-class.php';
+require 'classes/ValidateSession.php';
 $checkSession = new ValidateSession();
 
-require 'classes/ContactSupport-class.php';
+require 'classes/ContactSupport.php';
 $req = new ContactSupport('contactsupport.xml');
 
 $this->title = <<<_pageTitle_

@@ -2,7 +2,7 @@
 
 //error_reporting(E_ALL ^ E_NOTICE);
 
-require 'classes/ValidateSession-class.php';
+require 'classes/ValidateSession.php';
 require 'classes/AccountImporter.php';
 $checkSession = new ValidateSession();
 $accountImporter = new AccountImporter('access.xml','webcards.xml');

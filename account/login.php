@@ -1,10 +1,10 @@
 <?php
 error_reporting(E_ALL ^ E_NOTICE);
 
-require 'classes/ValidateSession-class.php';
+require 'classes/ValidateSession.php';
 $checkSession = new ValidateSession();
 
-require 'classes/Login-class.php';
+require 'classes/Login.php';
 $reg = new Login('access.xml');
  
 $this->title = <<<_pageTitle_

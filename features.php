@@ -1,5 +1,5 @@
 <?php
-require 'classes/ValidateSession-class.php';
+require 'classes/ValidateSession.php';
 $checkSession = new ValidateSession();
 
 
