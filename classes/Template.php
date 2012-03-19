@@ -76,7 +76,7 @@
             
             echo "<div id=\"accountLinks\">";
             if (isset($_SESSION['name'])){
-              if ((string)$_SESSION['isAdmin'] === 'true'){
+              if ((string)$_SESSION['isAdmin'] === 'True'){
                		echo "Welcome Admin {$_SESSION['name']}<br /><a href=\"/webcards/admin/admin\">Admin Page</a> or <a href=\"/webcards/account/logout\">Log Out</a>";
               }
               else {

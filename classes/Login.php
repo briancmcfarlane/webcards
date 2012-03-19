@@ -74,7 +74,7 @@ public function checkForErrors() {
     	for ($x=0; $x<$allAccts; $x++) {
 			
 			if ((string)$this->data->acct[$x]->email === $_POST['email']) {
-				
+				$this->storedRecord = $recordToUse = $x;
 				// store the numerical index of the matching account
 		 		//adding 1 because if it is the first entry in the array empty returns true
          		$recordToUse = $x+1;
@@ -132,6 +132,12 @@ public function allowIn() {
 	   	header("Location: $this->redir");
 	   	exit;
 	}
+        
+        if ($_SESSION['isAdmin'] === 'True'){
+            $this->redir = '/webcards/admin/admin';
+            header("Location: $this->redir");
+            exit;
+        }
 }
 
 }
