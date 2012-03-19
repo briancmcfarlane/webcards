@@ -6,7 +6,7 @@ require 'classes/ValidateSession.php';
 require 'classes/AccountImporter.php';
 require 'classes/AdminAccounts.php';
 $checkSession = new ValidateSession();
-
+$checkSession->checkIfAdmin();
 $userAccounts = new AdminAccounts('access.xml', 'contactsupport.xml');
 $accountImporter = new AccountImporter('access.xml','webcards.xml');
 

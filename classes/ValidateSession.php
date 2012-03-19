@@ -53,7 +53,7 @@ public function __construct($logout = false) {
 public function checkAuthorization() {
 	if(empty($_SESSION['auth'])) {
 		$this->doRedirect();
-	}
+	}   
 }
 
 public function doRedirect() {
@@ -75,6 +75,11 @@ public function removeSession() {
    	session_destroy();
 }
 
-}
+public function checkIfAdmin() {
+	if(empty($_SESSION['isAdmin'])) {
+		$this->doRedirect();
+	}
 
+    }
+}
 ?>

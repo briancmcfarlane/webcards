@@ -6,7 +6,7 @@ require 'classes/ValidateSession.php';
 require 'classes/AdminAccounts.php';
 $checkSession = new ValidateSession();
 $userAccounts = new AdminAccounts('access.xml', 'contactsupport.xml');
-
+$checkSession->checkIfAdmin();
 
 $this->title = <<<_pageTitle_
         WebCards: Admin Contact Information Page
