@@ -17,16 +17,16 @@ $this->content = <<<_pageContent_
 
 	{$req->error_msg}
 	<form method="post" action="/webcards/support"><div id="support-form">
-			<label for="name">Name: </label><input type="text" size="20" name="name" id="name" value="{$_POST['name']}" />
+			<label for="name">Name: </label><input type="text" size="20" name="name" id="name" tabindex="100" value="{$_POST['name']}" />
 				<input type="text" size="20" name="name_error" id="name_error" class="err_msg" readonly="readonly" value="{$_POST['name_error']}" /><br />
 				
-            <label for="email">Email Address: </label><input type="text" size="20" name="email" id="email" value="{$_POST['email']}"/>
+            <label for="email">Email Address: </label><input type="text" size="20" name="email" id="email" tabindex="110" value="{$_POST['email']}"/>
 				<input type="text" size="20" name="email_error" id="email_error" class="err_msg" readonly="readonly" value="{$_POST['email_error']}" /><br />
 				
-			<label for="subject">Subject: </label><input type="text" size="20" name="subject" id="subject" value="{$_POST['subject']}" />
+			<label for="subject">Subject: </label><input type="text" size="20" name="subject" id="subject" tabindex="120" value="{$_POST['subject']}" />
 				<input type="text" size="20" name="subj_error" id="subj_error" class="err_msg" readonly="readonly" value="{$_POST['subj_error']}" /><br />
 				
-			<label for="message">Message: </label><textarea name="message" id="message">{$_POST['message']}</textarea>
+			<label for="message">Message: </label><textarea name="message" id="message" tabindex="130">{$_POST['message']}</textarea>
 				<input type="text" size="20" name="msg_error" id="msg_error" class="err_msg" readonly="readonly" value="{$_POST['msg_error']}" /><br />
 				
 		<input type="hidden" name="submitted" value="y" />

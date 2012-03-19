@@ -21,10 +21,10 @@ $this->content = <<<_pageContent_
 
 <form method="post" action="/webcards/account/login">
 	<div>
-		<label for="emailadr">Email Address:</label><input type="text" size="20" name="email" id="emailadr" value="{$_POST['email']}" />
+		<label for="emailadr">Email Address:</label><input type="text" size="20" name="email" id="emailadr" tabindex="100" value="{$_POST['email']}" />
 			<input type="text" size="20" name="email_error" id="email_error" class="err_msg" readonly="readonly" value="{$_POST['email_error']}" /><br />
 		<label for="passwd">Password:</label><input type="password" size="20" name="pwd" id="passwd" />
-      <input type="text" size="20" name="psswd_error" id="psswd_error" class="err_msg" readonly="readonly" value="{$_POST['psswd_error']}" /><br />
+      <input type="text" size="20" name="psswd_error" id="psswd_error" class="err_msg" readonly="readonly" tabindex="110" value="{$_POST['psswd_error']}" /><br />
     <span id="pwd-link"><label>&nbsp;</label><a href="support">Forgot your password?</a></span>
 		<label>&nbsp;</label><input type="hidden" name="submitted" value="y" /><input type="submit" value="Login" /><br />
 	</div>
