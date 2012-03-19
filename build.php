@@ -39,8 +39,8 @@ $this->content = <<<_pageContent_
     	<textarea name="message" id="msg" cols="30" rows="4" tabindex="130"></textarea></li>
 	<li><label for="sender">Your Name:</label> <input type="text" name="sender" id="sender" tabindex="140" /></li>
     <li>
-		<label>&nbsp;</label> <input type="button" id="build" value="Build WebCard" tabindex="150" />
-		<input type="button" id="signup" name="signup" value="Save &amp; Send" tabindex="160"/>
+		<label>&nbsp;</label> <input type="button" id="build" value="Preview" tabindex="150" />
+		<input type="button" id="signup" name="signup" value="Save" tabindex="160"/>
 	</li>
 </ul>
 </form>

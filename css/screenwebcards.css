@@ -99,7 +99,6 @@ top: 2em;
 right: 1em;
 font-size: 90%;
 }
-
 #tnav, #tnav li {
 line-height: 1;
 }
@@ -140,8 +139,6 @@ float: left;
 }
 #content form div, #recip, #msg, #sender {
 margin-bottom: 1.25em;
-}
-
 }
 #content form label {
 text-transform: capitalize;
@@ -188,7 +185,9 @@ th {
   text-align: center;
   text-transform: uppercase;
 }
-
+#footer {
+  margin: 1em 0;
+}
 
 /* right-hand column */
 #sidebar {

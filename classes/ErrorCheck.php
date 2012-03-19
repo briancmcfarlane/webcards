@@ -1,5 +1,8 @@
 <?php
 
+// suppress notices, since some variables will not be set
+error_reporting(E_ALL ^ E_NOTICE);
+
 class ErrorCheck {
 
 public	$errs = '';
@@ -11,7 +14,7 @@ public function containsData($field, $errMsg) {
 		return $msg;
 	}
 	else {
-	    if (preg_match('[\*\$\+\=\\\/]', $field)) {
+	    if (preg_match('*[\*\$\+\=\\\/]*', $field)) {
 	    	$msg = 'Please remove any *, $, +, /, \\.';
 			$this->errs = 'y';
 			return $msg;
