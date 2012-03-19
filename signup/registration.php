@@ -31,7 +31,7 @@ $this->content = <<<_pageContent_
                 <label for="platinum">Platinum Plan</label><input type="radio" name="plan" value="Platinum" id="platinum"/><br />
             <input type="hidden" name="submitted" value="y" />
             <br />                     
-            <label>&nbsp;</label><input type="submit" value="Create Account"/><input type="reset" value="Reset Fields"/>
+            <label>&nbsp;</label><input type="submit" value="Create Account"/>
         </div></form>
 _pageContent_;
 

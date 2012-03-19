@@ -3,7 +3,7 @@
 // suppress notices, since some variables will not be set
 error_reporting(E_ALL ^ E_NOTICE);
 
-require 'ErrorCheck.php';
+require_once 'ErrorCheck.php';
 
 
 class Login {
@@ -66,6 +66,7 @@ public function checkForErrors() {
   	if (empty($_POST['email_error'])) {
     	
     	$_POST['email'] = trim($_POST['email']);
+        $_POST['email'] = strtolower($_POST['email']);
 		$allAccts = count($this->data->acct);
 
     	for ($x=0; $x<$allAccts; $x++) {
@@ -98,12 +99,7 @@ public function checkForErrors() {
      			$_POST['pwd'] = trim($_POST['pwd']);
      			$encodedPwd = sha1($_POST['pwd'] . $_POST['email']);
 
-		     	if ($encodedPwd === (string)$this->data->acct[$recordToUse]->password) {
-        			// set a flag so we know the password matched
-        			$matchFound = true;
-     			}
-
-		     	else {
+		     	if ($encodedPwd !== (string)$this->data->acct[$recordToUse]->password) {
         			$_POST['psswd_error'] = 'Incorrect password';
 					$check->externalError();
      			}
