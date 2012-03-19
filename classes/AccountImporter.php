@@ -5,19 +5,20 @@ class AccountImporter{
     public function __construct($acctFile,$webcardFile) {
         
         include_once 'includes/xml-formatter.php';
+
+        unset($_SESSION['index']);
+        unset($_SESSION['font']);
+        unset($_SESSION['border']);
+        unset($_SESSION['recipient']);
+        unset($_SESSION['message']);
+        unset($_SESSION['sender']);
         
         $this->accountDataFilePath = $acctFile;
-        
         $this->webcardDataFilePath = $webcardFile;
-        
         $this->accountData = simplexml_load_file($acctFile);
-        
         $this->webcardData = simplexml_load_file($webcardFile);
- 
         $this->accountDetails = $this->loadUserAccount();
-        
         $this->webcardForm = $this->loadUsersCards();
-        
         
         if ($_POST['alterAccount'] === 'y'){
             
@@ -32,11 +33,18 @@ class AccountImporter{
 
         }
         
-        if ($_POST['manageCards'] === 'y'){
+        if ($_POST['manageCards'] === 'y' && isset($_POST['card'])){
             
             if ($_POST['btn'] === 'Delete Card'){
-                
-                $this->deleteCards();
+                $this->deleteCard();
+            }
+            
+            if ($_POST['btn'] === 'Send Card'){
+                $this->sendCard();
+            }
+            
+            if ($_POST['btn'] === 'Edit Card'){
+                $this->editCard();
             }
         }
         
@@ -290,13 +298,13 @@ and re-submit the form.</strong></p>';
 
     }
 
-    private function deleteCards(){
+    private function deleteCard(){
         
         $allCards = count($this->webcardData->webcard);
         
          for ($x=0; $x<$allCards; $x++){
              
-            if ((string)$this->webcardData->webcard[$x]->user === $_SESSION['email'] && $_POST['card'] == $x){
+            if ($_POST['card'] == $x){
                 unset($this->webcardData->webcard[$x]);
             }
             
@@ -308,6 +316,38 @@ and re-submit the form.</strong></p>';
         $this->webcardForm = $this->loadUsersCards();
     
     }
+    private function sendCard(){}
+    
+    private function editCard(){
+        
+        $allCards = count($this->webcardData->webcard);
+        
+         for ($x=0; $x<$allCards; $x++){
+             
+            if ($_POST['card'] == $x){
+                
+                $index = $x;
+                $txtstyle = $this->webcardData->webcard[$x]->txtstyle->asXML();
+                $txtstyle = strip_tags($txtstyle);
+                $recipient = $this->webcardData->webcard[$x]->recipient->asXML();
+                $recipient = strip_tags($recipient);
+                $message = $this->webcardData->webcard[$x]->message->asXML();
+                $message = strip_tags($message);
+                $sender = $this->webcardData->webcard[$x]->sender->asXML();
+                $sender = strip_tags($sender);
+            }
+            
+         }
+         
+         $_SESSION['index'] = $index;
+         $_SESSION['recipient'] = $recipient;
+         $_SESSION['message'] = $message;
+         $_SESSION['sender'] = $sender;         
+        
+         $redir = '../build/';
+         header("Location: $redir");
+    }
+
 }
 
 ?>

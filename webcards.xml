@@ -80,12 +80,4 @@
         <message>This is a test message.</message>
         <sender>Test User</sender>
     </webcard>
-    <webcard>
-        <user>adminuser@admin.com</user>
-        <txtstyle>serif</txtstyle>
-        <bordr>Dentist Appt. A Border Image</bordr>
-        <recipient>testuser@test.com</recipient>
-        <message>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</message>
-        <sender>Admin User</sender>
-    </webcard>
 </root>

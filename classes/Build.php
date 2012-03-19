@@ -41,6 +41,23 @@ public function __construct($dataFile) {
 
 // method: save data to disk
 public function saveData() { 
+    
+          if (isset($_SESSION['index'])){
+             
+          $allCards = count($this->data->webcard);
+             
+          for ($x=0; $x<$allCards; $x++){
+             
+            if ($_SESSION['index'] == $x){
+                unset($this->data->webcard[$x]);
+            }
+            
+          }
+        
+         $xmlData = xmlPrettyPrint($this->data->asXML());
+         file_put_contents($this->dataFilePath, $xmlData);
+            
+         }
 	 // add SimpleXML nodes for the new account
 	 $newAcct = $this->data->addChild('webcard');
  	 $newAcct->addChild('user', $_SESSION['email']);
@@ -55,10 +72,26 @@ public function saveData() {
 	 
 	 // save the account data back to the XML file
 	 file_put_contents($this->dataFilePath, $xmlData);
+         
+         unset($_SESSION['index']);
+         unset($_SESSION['font']);
+         unset($_SESSION['border']);
+         unset($_SESSION['recipient']);
+         unset($_SESSION['message']);
+         unset($_SESSION['sender']);
 	 
 	 setcookie("signup", "", time()-3600);
 }
 
+    public function markFont($fontValue){
+    
+        if ($fontValue === $_SESSION['font']){
+            return 'checked';
+        }
+        
+        else {return "";}
+    
+    }
 }
 
 ?>
