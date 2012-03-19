@@ -194,6 +194,10 @@ th {
 #footer {
   margin: 1em 0;
 }
+#pwd-link {
+display: block;
+margin: 0 0 1em;
+}
 
 /* right-hand column */
 #sidebar {
