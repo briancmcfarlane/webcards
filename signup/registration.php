@@ -13,10 +13,17 @@ $this->content = <<<_pageContent_
 
         {$reg->error_msg}
         <form method="post" action="/webcards/signup/registration"><div>
-            <label for="emailAddr">Email Address: </label><input type="text" size="20" name="email" id="emailAddr" value="{$_POST['email']}"/><br/>
-            <label for="password">Password: </label><input type="password" size="20" name="password" id="password" /><br/>
-            <label for="confirmpassword">Confirm Password: </label><input type="password" size="20" name="confirmpassword" id="confirmpassword" /><br/>
             <label for="name">Name: </label><input type="text" size="20" name="name" id="name" value="{$_POST['name']}" />
+    				<input type="text" size="20" name="name_error" id="name_error" class="err_msg" readonly="readonly" value="{$_POST['name_error']}" /><br />
+            <label for="emailAddr">Email Address: </label><input type="text" size="20" name="email" id="emailAddr" value="{$_POST['email']}"/>
+				<input type="text" size="20" name="email_error" id="email_error" class="err_msg" readonly="readonly" value="{$_POST['email_error']}" /><br />
+
+            <label for="password">Password: </label><input type="password" size="20" name="password" id="password" />
+    				<input type="text" size="20" name="psswd_error" id="psswd_error" class="err_msg" readonly="readonly" value="{$_POST['psswd_error']}" /><br />
+
+            <label for="confirmpassword">Confirm Password: </label><input type="password" size="20" name="confirmpassword" id="confirmpassword" /><br/>
+
+
             <h3>Choose Your Plan:</h3>
                 <label for="copper">Copper Plan</label><input type="radio" name="plan" value="Copper" id="copper"/><br />
                 <label for="silver">Silver Plan</label><input type="radio" name="plan" value="Silver" id="silver"/><br />

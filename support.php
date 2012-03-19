@@ -17,11 +17,8 @@ $this->content = <<<_pageContent_
 
 	{$req->error_msg}
 	<form method="post" action="/webcards/support"><div id="support-form">
-			<label for="first_name">First Name: </label><input type="text" size="20" name="first_name" id="first_name" value="{$_POST['first_name']}" />
-				<input type="text" size="20" name="fname_error" id="fname_error" class="err_msg" readonly="readonly" value="{$_POST['fname_error']}" /><br />
-				
-			<label for="last_name">Last Name: </label><input type="text" size="20" name="last_name" id="last_name" value="{$_POST['last_name']}" />
-				<input type="text" size="20" name="lname_error" id="lname_error" class="err_msg" readonly="readonly" value="{$_POST['lname_error']}" /><br />
+			<label for="name">Name: </label><input type="text" size="20" name="name" id="name" value="{$_POST['name']}" />
+				<input type="text" size="20" name="name_error" id="name_error" class="err_msg" readonly="readonly" value="{$_POST['name_error']}" /><br />
 				
             <label for="email">Email Address: </label><input type="text" size="20" name="email" id="email" value="{$_POST['email']}"/>
 				<input type="text" size="20" name="email_error" id="email_error" class="err_msg" readonly="readonly" value="{$_POST['email_error']}" /><br />

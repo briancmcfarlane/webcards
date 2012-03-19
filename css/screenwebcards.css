@@ -54,6 +54,12 @@ font-size: 100%;
 #footer, #sidebar, #available {
 font-size: 90%;
 }
+#counter {
+  border: none;
+  text-align: right;
+  color: #555;
+  padding: none;
+}
 .serif {
 font-family: georgia,serif;
 }
