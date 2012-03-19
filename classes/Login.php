@@ -3,6 +3,9 @@
 // suppress notices, since some variables will not be set
 error_reporting(E_ALL ^ E_NOTICE);
 
+require 'ErrorCheck.php';
+
+
 class Login {
 
 // property: path to confirmation page
@@ -37,40 +40,31 @@ public function __construct($dataFile) {
     	$this->data = simplexml_load_file($dataFile);
 
      	// call the method to determine errors
-     	$this->theErrors = $this->checkForErrors();
+     	$this->error_msg = $this->checkForErrors();
 
      	// if errors were found output them
      	// otherwise redirect to the confirmation page
-     	if ($this->theErrors) {
-			$this->outputErrors();
-	 	}
-
-	 	else {
-	 		$this->allowIn();
+     	if (!$this->error_msg) {
+			$this->allowIn();
 	   	
 			// redirect the user to the confirmation page
 	   		header("Location: $this->redir");
-   			exit;
 	 	}
 	}
 }
 
 // method: construct an array of error messages and return that array
 public function checkForErrors() {
-
-	// this will hold our error messages
-  	$errors = array();
-
+	
+	$check = new ErrorCheck();
+   
+	$_POST['email_error'] = $check->validEmail($_POST['email']);
+	$_POST['psswd_error'] = $check->containsData($_POST['pwd'], 'a password');   
+	
   	// this block of code deals with the email address
   	// if it is not set, output the proper error
-  	if (empty($_POST['email'])) {
-    	$errors[] = 'Please enter an email address.';
-  	}
-
-	// if it is set, remove empty spaces on the ends
-	// and test for a match
-  	else {
-
+  	if (empty($_POST['email_error'])) {
+    	
     	$_POST['email'] = trim($_POST['email']);
 		$allAccts = count($this->data->acct);
 
@@ -82,13 +76,14 @@ public function checkForErrors() {
 		 		//adding 1 because if it is the first entry in the array empty returns true
          		$recordToUse = $x+1;
 			}
-    	}
+   	}
 
     	// display an error message if the account cannot be found
     	if (empty($recordToUse)) {
 
-      		$errors[] = "No account exists for the <em>{$_POST['email']}</em> address.";
-
+      		$_POST['email_error'] = "No account exists for the <em>{$_POST['email']}</em> address.";
+			$_POST['psswd_error'] = "";
+			$check->externalError();
     	}
 		
 		else {
@@ -96,39 +91,27 @@ public function checkForErrors() {
 			//subtracting 1 to find real entry number
 			$recordToUse = $recordToUse - 1;
 			$this->name = (string)$this->data->acct[$recordToUse]->name;
+		
+  			// this block of code deals with the password
+  			// if the user neglected to enter the password then trigger an error
+			if (empty($_POST['psswd_error'])) {
+     			$_POST['pwd'] = trim($_POST['pwd']);
+     			$encodedPwd = sha1($_POST['pwd'] . $_POST['email']);
+
+		     	if ($encodedPwd === (string)$this->data->acct[$recordToUse]->password) {
+        			// set a flag so we know the password matched
+        			$matchFound = true;
+     			}
+
+		     	else {
+        			$_POST['psswd_error'] = 'Incorrect password';
+					$check->externalError();
+     			}
+			}
 		}
-  	}
-
-  	// this block of code deals with the password
-  	// if the user neglected to enter the password then trigger an error
-  	if (empty($_POST['pwd'])) {
-    	$errors[] = 'Please enter your password.';
-  	}
-
-  	// clean up empty spaces and check for a match
-  	else {
-
-     	$_POST['pwd'] = trim($_POST['pwd']);
-     	$encodedPwd = sha1($_POST['pwd'] . $_POST['email']);
-
-     	if ($encodedPwd === (string)$this->data->acct[$recordToUse]->password) {
-        	// set a flag so we know the password matched
-        	$matchFound = true;
-     	}
-
-     	else {
-        	$errors[] = 'Password is not correct.  Please try to enter the password again.';
-     	}
 	}
 	
-	return $errors;
-}
-
-public function outputErrors() {
-
-	$this->error_msg = '<p><strong>Please correct the following issues
-                       and re-submit the form.</strong></p>';
-   	$this->error_msg .= '<ul><li>' . implode('</li><li>',$this->theErrors) . '</li></ul>';
+	return $check->outputErrors(); 
 }
 
 public function allowIn() {

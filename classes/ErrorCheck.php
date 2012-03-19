@@ -38,6 +38,10 @@ public function validEmail($email) {
 	}
 }
 
+public function externalError() {
+	$this->errs = 'y';
+}
+
 public function outputErrors() {
 	if ($this->errs)
 	{
