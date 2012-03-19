@@ -6,7 +6,7 @@ $checkSession = new ValidateSession();
 
 require 'classes/Login.php';
 $reg = new Login('access.xml');
- 
+
 $this->title = <<<_pageTitle_
         WebCards: Login
 _pageTitle_;
