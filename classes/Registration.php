@@ -68,8 +68,7 @@ class Registration {
 		}
 
       	if ($acctExists) {
-	    	$_POST['email_error'] = 'An account has already been established for that address.
-    	                 Enter another email address.';
+	    	$_POST['email_error'] = 'Email already in use.';
 			$check->externalError();
       	}
 	}
@@ -94,7 +93,7 @@ class Registration {
 			elseif (!preg_match('/[a-z]/', $_POST['password']) ||
           			!preg_match('/[A-Z]/', $_POST['password']) ||
           			!preg_match('/[0-9]/', $_POST['password'])) {
-            $_POST['psswd_error'] = 'Password is not formatted properly.';
+            $_POST['psswd_error'] = 'Enter a valid password.';
 			$check->externalError();
       		}
     	}
