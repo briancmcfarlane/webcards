@@ -57,13 +57,13 @@
         <password>d33c779bda42548f546e437dcce0157d60152957</password>
         <name>Test User</name>
         <plan>bronze</plan>
-        <isAdmin>false</isAdmin>
+        <isAdmin>False</isAdmin>
     </acct>
     <acct>
         <email>adminuser@admin.com</email>
         <password>ebe1c4fc01e258e56621f62c07466ff684041b1c</password>
         <name>Admin User</name>
         <plan>Gold</plan>
-        <isAdmin>true</isAdmin>
+        <isAdmin>True</isAdmin>
     </acct>
 </root>

@@ -19,7 +19,6 @@ $this->content = <<<_pageContent_
 		
 	<form method="post" action=""><div>
 		{$userAccounts->supportTableData}
-		<input type='submit' name='delMsg' value='Remove Message' id='delMsg'/>
 	</div></form>
 	<div class="clr"></div>
 
