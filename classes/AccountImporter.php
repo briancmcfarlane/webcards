@@ -18,16 +18,17 @@ class AccountImporter{
         
         $this->webcardForm = $this->loadUsersCards();
         
+        
         if ($_POST['alterAccount'] === 'y'){
             
            $this->theErrors = $this->checkForErrors();
            
            if ($this->theErrors) {
-		 $this->outputErrors();
-	   }
+				$this->outputErrors();
+			}
            else {
-		 $this->alterAccountDetails();
-	   }
+				$this->alterAccountDetails();
+			}
 
         }
         
@@ -44,11 +45,18 @@ class AccountImporter{
     public function loadUserAccount(){
         
         $allAccounts = count($this->accountData->acct);
+        $emailLoc = $_POST['postVal'];
         
         for ($x=1; $x<$allAccounts; $x++){
-            if ((string)$this->accountData->acct[$x]->email === $_SESSION['email']){
-                $acctToLoad = $this->accountData->acct[$x];
-            }
+			if(empty($_POST['postVal'])){
+				if ((string)$this->accountData->acct[$x]->email === $_SESSION['email']){
+				$acctToLoad = $this->accountData->acct[$x];
+				}
+			}
+			else{
+					$acctToLoad = $this->accountData->acct[$emailLoc-1];
+				}
+			
         }
         return $acctToLoad;
     }
@@ -92,7 +100,7 @@ class AccountImporter{
         if ($acctExists) {
 
         $errors[] = 'An account has already been established for that address.
-                     Enter another email address.';
+Enter another email address.';
 
         }
 
@@ -143,7 +151,7 @@ class AccountImporter{
     public function outputErrors() {
 
    $this->error_msg = '<p><strong>Please correct the following issues
-                       and re-submit the form.</strong></p>';
+and re-submit the form.</strong></p>';
    $this->error_msg .= '<ul><li>' . implode('</li><li>',$this->theErrors) . '</li></ul>';
 
  }
@@ -181,22 +189,35 @@ class AccountImporter{
     public function loadUsersCards(){
         
         $allCards = count($this->webcardData->webcard);
-        
+
         $form = '<form method="post" action=""><table border="1"><thead><tr><th></th><th>Sender</th><th>Recipient</th><th>Text Style</th><th>Border</th><th>Message</th></tr></thead><tbody>';
 
         for ($x=0; $x<$allCards; $x++) {
-
-        if ((string)$this->webcardData->webcard[$x]->user === $_SESSION['email']) {
-            $form .= '<tr>';
-            $form .= '<td><input type="radio" name="card" value="'.$x.'"></td>';
-            $form .= '<td>' . $this->webcardData->webcard[$x]->sender . '</td>';
-            $form .= '<td>' . $this->webcardData->webcard[$x]->recipient . '</td>';
-            $form .= '<td>' . $this->webcardData->webcard[$x]->txtstyle . '</td>';
-            $form .= '<td>' . $this->loadBorderGraphic($this->webcardData->webcard[$x]->bordr) . '</td>';
-            $form .= '<td>' . $this->webcardData->webcard[$x]->message . '</td>';
-            $form .= '</tr>';
-        }
-
+		
+		if(empty($_POST['postVal'])){
+			if ((string)$this->webcardData->webcard[$x]->user === $_SESSION['email']) {
+				$form .= '<tr>';
+				$form .= '<td><input type="radio" name="card" value="'.$x.'"></td>';
+				$form .= '<td>' . $this->webcardData->webcard[$x]->sender . '</td>';
+				$form .= '<td>' . $this->webcardData->webcard[$x]->recipient . '</td>';
+				$form .= '<td>' . $this->webcardData->webcard[$x]->txtstyle . '</td>';
+				$form .= '<td>' . $this->loadBorderGraphic($this->webcardData->webcard[$x]->bordr) . '</td>';
+				$form .= '<td>' . $this->webcardData->webcard[$x]->message . '</td>';
+				$form .= '</tr>';
+			}
+		}
+		
+		elseif((string)$this->webcardData->webcard[$x]->user === (string)$this->accountDetails->email){
+				$form .= '<tr>';
+				$form .= '<td><input type="radio" name="card" value="'.$x.'"></td>';
+				$form .= '<td>' . $this->webcardData->webcard[$x]->sender . '</td>';
+				$form .= '<td>' . $this->webcardData->webcard[$x]->recipient . '</td>';
+				$form .= '<td>' . $this->webcardData->webcard[$x]->txtstyle . '</td>';
+				$form .= '<td>' . $this->loadBorderGraphic($this->webcardData->webcard[$x]->bordr) . '</td>';
+				$form .= '<td>' . $this->webcardData->webcard[$x]->message . '</td>';
+				$form .= '</tr>';
+		}
+		
         }
         
         $form .= '</tbody></table><br /><input type="hidden" name="manageCards" value="y" /><input type="submit" name="btn" value="Delete Card"/>&nbsp;<input type="submit" name="btn" value="Send Card"/>&nbsp;<input type="submit" name="btn" value="Edit Card"/></form>';
@@ -208,7 +229,7 @@ class AccountImporter{
     private function loadBorderGraphic($bordrAlt){
         
         switch ($bordrAlt){
-            case "Dentist Appt. A Border Image": 
+            case "Dentist Appt. A Border Image":
                 return "<img src=\"images/theme-dentist-a.png\" alt=\"Dentist Appt. A Border Image\"/>";
                 break;
             case "Dentist Appt. B Border Image":

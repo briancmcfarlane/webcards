@@ -267,3 +267,9 @@ color: #fff;
 #content form .imgBorder {
 border: 3px solid #00A6F0;
 }
+#editUser{
+  margin:15px 300px;
+}
+#delMsg{
+  margin:15px 275px;
+}

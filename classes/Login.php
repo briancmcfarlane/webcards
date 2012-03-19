@@ -14,6 +14,8 @@ public $redir = '/webcards/account/myaccount';
 // property: user name
 public $name = '';
 
+public $storedRecord = '';
+
 // method called when object instantiated
 // pass it the path to the XML file
 public function __construct($dataFile) {
@@ -119,6 +121,9 @@ public function allowIn() {
    	$_SESSION['time'] = time();
    	$_SESSION['timeout'] = 1800;
    	$_SESSION['name'] = $this->name;
+    
+    // admin session
+    $_SESSION['isAdmin'] = (string)$this->data->acct[$this->storedRecord]->isAdmin;
 
 	// allowIn function is also used by the registration page to automatically log
 	// the user in once they create an account.     
