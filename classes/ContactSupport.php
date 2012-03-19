@@ -44,8 +44,7 @@ public function checkForErrors() {
 
 	$check = new ErrorCheck();
    
-	$_POST['fname_error'] = $check->containsData($_POST['first_name'], 'your first name');
-	$_POST['lname_error'] = $check->containsData($_POST['last_name'], 'your last name');
+	$_POST['name_error'] = $check->containsData($_POST['name'], 'your name');
 	$_POST['email_error'] = $check->validEmail($_POST['email']);
 	$_POST['subj_error'] = $check->containsData($_POST['subject'], 'the subject');       
 	$_POST['msg_error'] = $check->containsData($_POST['message'], 'a message');   
@@ -58,12 +57,11 @@ public function createMsg() {
 	// encrypt a combination of the password and the email address
    	// so that a hacker would have even more difficulty decrypting it
    	$formattedEmail = strtolower($_POST['email']);
-   	$fullName =  $_POST['first_name'] . ' ' . $_POST['last_name'];
 
    	// add SimpleXML nodes for the new support request
    	$newAcct = $this->data->addChild('msg');
    	$newAcct->addChild('email', $formattedEmail);
-   	$newAcct->addChild('name', $fullName);
+   	$newAcct->addChild('name', $_POST['name']);
    	$newAcct->addChild('subject', $_POST['subject']);
    	$newAcct->addChild('message', $_POST['message']);
 

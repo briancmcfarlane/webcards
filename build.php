@@ -33,11 +33,14 @@ $this->content = <<<_pageContent_
 		<a href="#" tabindex="110"><img src="images/theme-vd-b.png" width="100" height="100" alt="Valentine's Day B Border Image" /></a></div>
 		<input type="hidden" name="bordr" id="bordr" value="bordr" />
 	</li>
-	<li><label for="recip">WebCard Recipient:</label> <input type="text" name="recipient" id="recip" tabindex="120" /></li>
+	<li><label for="recip">WebCard Recipient:</label> <input type="text" name="recipient" id="recip" tabindex="120" />
+    				<input type="text" size="20" name="recipient_error" id="recipient_error" class="err_msg" readonly="readonly" value="{$_POST['recipient_error']}" /><br /></li>
     <li><label for="msg">WebCard Message:<br />
     <span id="available"><input type="text" name="totalcharacters" id="counter" size="4" value="300" readonly="readonly" /> characters left</span></label>
-    	<textarea name="message" id="msg" cols="30" rows="4" tabindex="130"></textarea></li>
-	<li><label for="sender">Your Name:</label> <input type="text" name="sender" id="sender" tabindex="140" /></li>
+    	<textarea name="message" id="msg" cols="30" rows="4" tabindex="130"></textarea>
+    				<input type="text" size="20" name="msg_error" id="msg_error" class="err_msg" readonly="readonly" value="{$_POST['msg_error']}" /><br /></li>
+	<li><label for="sender">Your Name:</label> <input type="text" name="sender" id="sender" tabindex="140" />
+    				<input type="text" size="20" name="sender_error" id="sender_error" class="err_msg" readonly="readonly" value="{$_POST['sender_error']}" /><br /></li>
     <li>
 		<label>&nbsp;</label> <input type="button" id="build" value="Preview" tabindex="150" />
 		<input type="button" id="signup" name="signup" value="Save" tabindex="160"/>
